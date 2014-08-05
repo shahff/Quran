@@ -1,0 +1,55 @@
+﻿        <ion-view title="Index">
+            <ion-nav-buttons side="left">
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>
+            <ion-content class="has-header">
+
+
+
+
+                <!--<br /><br />
+                <div>Hello, yo application is ready! {{vm.suras[0].index}} | {{vm.suras[0].ename}} | {{vm.suras[0].tname}}</div>
+                <button class="button button-royal" ng-click="vm.getSuraIndex()">Click here</button>-->
+
+                <!--<ion-list  >
+                    <ion-item  class="card" collection-repeat="s in vm.suras" style="background-color:blue" href="#/view/main" collection-item-height="170"
+        collection-item-width="400" ng-style="{'line-height': 40 + 'px'}>
+                        <div class="row">
+                                <div class="col col-50 text-left"><h4>{{s.index}}</h4></div>
+                                <div class="col col-50 text-right"><h4>{{s.tname}}</h4></div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center"><h1><strong>{{s.name}}</strong></h1></div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-50 text-left"><h4>{{s.ename}}</h4></div>
+                                <div class="col col-50 text-right"><h4>{{s.type}}</h4></div>
+                            </div>
+
+                    </ion-item>
+                </ion-list>-->
+
+                <div class="list">
+                    
+                      <a class="item my-item"
+                        collection-repeat="s in vm.suras"
+                        collection-item-height="150"
+                        collection-item-width="100 + '%'"
+                        style="width:100%"
+                           href="#/main/home/{{s.id}}"
+                           >
+                          <div class="row">
+                                <div class="col col-50 text-left"><h4>{{s.id}}</h4></div>
+                                <div class="col col-50 text-right"><h4>{{s.transName}}</h4></div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center"><h1><strong>{{s.name}}</strong></h1></div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-50 text-left"><h4>{{s.engName}}</h4></div>
+                                <div class="col col-50 text-right"><h4>{{s.type}}</h4></div>
+                            </div>
+                          </a>
+                </div>
+            </ion-content>
+        </ion-view>

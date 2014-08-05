@@ -1,0 +1,154 @@
+﻿ {
+    "reciter": [
+      {
+        "ID": "abdulbasit",
+        "fname": "AbdulBasit AbdusSamad",
+        "name": "AbdulBasit",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "abdulbasit-mjwd",
+        "fname": "AbdulBasit AbdusSamad",
+        "name": "AbdulBasit (Mujawwad)",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "afasy",
+        "fname": "Mishary bin Rashid Al-Afasy",
+        "name": "Al-Afasy",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "ajamy",
+        "fname": "Ahmed Al-Ajamy",
+        "name": "Al-Ajamy",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "akhdar",
+        "fname": "Ibrahim Al-Akhdar",
+        "name": "Al-Akhdar",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "ghamadi",
+        "fname": "Sa'ad Al-Ghamadi",
+        "name": "Al-Ghamadi",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "hudhaify",
+        "fname": "Ali Al-Hudhaify",
+        "name": "Al-Hudhaify",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "husary",
+        "fname": "Khalil Al-Husary",
+        "name": "Al-Husary",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "husary-mjwd",
+        "fname": "Khalil Al-Husary",
+        "name": "Al-Husary (Mujawwad)",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "minshawi",
+        "fname": "Mohammed Siddiq Al-Minshawi",
+        "name": "Al-Minshawi",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "minshawi-mjwd",
+        "fname": "Mohammed Siddiq Al-Minshawi",
+        "name": "Al-Minshawi (Mujawwad)",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "muaiqly",
+        "fname": "Mahir Al-Muaiqly",
+        "name": "Al-Muaiqly",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "hani",
+        "fname": "Hani Ar-Rafai",
+        "name": "Ar-Rafai",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "sudais",
+        "fname": "AbdurRahman As-Sudais",
+        "name": "As-Sudais",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "shateri",
+        "fname": "Abu-Bakr Ash-Shateri",
+        "name": "Ash-Shateri",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "shuraim",
+        "fname": "Sa'ud bin Ibrahim Ash-Shuraim",
+        "name": "Ash-Shuraim",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "tablawi",
+        "fname": "Mohammad Mahmood At-Tablawi",
+        "name": "At-Tablawi",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "basfar",
+        "fname": "Abdullah Basfar",
+        "name": "Basfar",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "basfar2",
+        "fname": "Abdullah Basfar",
+        "name": "Basfar II",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "ayyub",
+        "fname": "Muhammad Ayyub",
+        "name": "Muhammad Ayyub",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "jibreel",
+        "fname": "Muhammad Jibreel",
+        "name": "Muhammad Jibreel",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "parhizgar",
+        "fname": "Shahriar Parhizgar",
+        "name": "Parhizgar",
+        "lang": "Arabic"
+      },
+      {
+        "ID": "ibrahim",
+        "fname": "Voice: Ibrahim Walk",
+        "name": "Sahih Intl",
+        "lang": "English"
+      },
+      {
+        "ID": "fooladvand",
+        "fname": "Voice: Hedayatfar",
+        "name": "فولادوند",
+        "lang": "Persian"
+      },
+      {
+        "ID": "makarem",
+        "fname": "Voice: Kabiri",
+        "name": "مکارم شیرازی",
+        "lang": "Persian"
+      }
+    ]
+  }

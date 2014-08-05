@@ -1,0 +1,804 @@
+﻿{
+    "translator": [
+      {
+        "id": "sq.nahi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/al.png",
+        "lang": "Albanian",
+        "name": "Efendi Nahi",
+        "fname": "Hasan Efendi Nahi",
+        "url": "http://tanzil.net/trans/sq.nahi&type=xml"
+      },
+      {
+        "id": "sq.mehdiu",
+        "imgUrl": "http://tanzil.net/pub/img/flag/al.png",
+        "lang": "Albanian",
+        "name": "Feti Mehdiu",
+        "fname": "Feti Mehdiu",
+        "url": "http://tanzil.net/trans/sq.mehdiu&type=xml"
+      },
+      {
+        "id": "sq.ahmeti",
+        "imgUrl": "http://tanzil.net/pub/img/flag/al.png",
+        "lang": "Albanian",
+        "name": "Sherif Ahmeti",
+        "fname": "Sherif Ahmeti",
+        "url": "http://tanzil.net/trans/sq.ahmeti&type=xml"
+      },
+      {
+        "id": "ar.jalalayn",
+        "imgUrl": "http://tanzil.net/pub/img/flag/sa.png",
+        "lang": "Arabic",
+        "name": "تفسير الجلالين",
+        "fname": "Jalal ad-Din al-Mahalli and Jalal ad-Din as-Suyuti",
+        "url": "http://tanzil.net/trans/ar.jalalayn&type=xml"
+      },
+      {
+        "id": "ar.muyassar",
+        "imgUrl": "http://tanzil.net/pub/img/flag/sa.png",
+        "lang": "Arabic",
+        "name": "تفسير المیسر",
+        "fname": "King Fahad Quran Complex",
+        "url": "http://tanzil.net/trans/ar.muyassar&type=xml"
+      },
+      {
+        "id": "az.mammadaliyev",
+        "imgUrl": "http://tanzil.net/pub/img/flag/az.png",
+        "lang": "Azerbaijani",
+        "name": "Məmmədəliyev & Bünyadov",
+        "fname": "Vasim Mammadaliyev and Ziya Bunyadov",
+        "url": "http://tanzil.net/trans/az.mammadaliyev&type=xml"
+      },
+      {
+        "id": "az.musayev",
+        "imgUrl": "http://tanzil.net/pub/img/flag/az.png",
+        "lang": "Azerbaijani",
+        "name": "Musayev",
+        "fname": "Alikhan Musayev",
+        "url": "http://tanzil.net/trans/az.musayev&type=xml"
+      },
+      {
+        "id": "bn.bengali",
+        "imgUrl": "http://tanzil.net/pub/img/flag/bd.png",
+        "lang": "Bengali",
+        "name": "মুহিউদ্দীন খান",
+        "fname": "Muhiuddin Khan",
+        "url": "http://tanzil.net/trans/bn.bengali&type=xml"
+      },
+      {
+        "id": "bs.korkut",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ba.png",
+        "lang": "Bosnian",
+        "name": "Korkut",
+        "fname": "Besim Korkut",
+        "url": "http://tanzil.net/trans/bs.korkut&type=xml"
+      },
+      {
+        "id": "bs.mlivo",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ba.png",
+        "lang": "Bosnian",
+        "name": "Mlivo",
+        "fname": "Mustafa Mlivo",
+        "url": "http://tanzil.net/trans/bs.mlivo&type=xml"
+      },
+      {
+        "id": "bg.theophanov",
+        "imgUrl": "http://tanzil.net/pub/img/flag/bg.png",
+        "lang": "Bulgarian",
+        "name": "Теофанов",
+        "fname": "Tzvetan Theophanov",
+        "url": "http://tanzil.net/trans/bg.theophanov&type=xml"
+      },
+      {
+        "id": "zh.jian",
+        "imgUrl": "http://tanzil.net/pub/img/flag/cn.png",
+        "lang": "Chinese",
+        "name": "Ma Jian",
+        "fname": "Ma Jian",
+        "url": "http://tanzil.net/trans/zh.jian&type=xml"
+      },
+      {
+        "id": "zh.majian",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tw.png",
+        "lang": "Chinese",
+        "name": "Ma Jian (Traditional)",
+        "fname": "Ma Jian",
+        "url": "http://tanzil.net/trans/zh.majian&type=xml"
+      },
+      {
+        "id": "cs.hrbek",
+        "imgUrl": "http://tanzil.net/pub/img/flag/cz.png",
+        "lang": "Czech",
+        "name": "Hrbek",
+        "fname": "Preklad I. Hrbek",
+        "url": "http://tanzil.net/trans/cs.hrbek&type=xml"
+      },
+      {
+        "id": "cs.nykl",
+        "imgUrl": "http://tanzil.net/pub/img/flag/cz.png",
+        "lang": "Czech",
+        "name": "Nykl",
+        "fname": "A. R. Nykl",
+        "url": "http://tanzil.net/trans/cs.nykl&type=xml"
+      },
+      {
+        "id": "dv.divehi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/mv.png",
+        "lang": "Divehi",
+        "name": "ދިވެހި",
+        "fname": "Office of the President of Maldives",
+        "url": "http://tanzil.net/trans/dv.divehi&type=xml"
+      },
+      {
+        "id": "nl.keyzer",
+        "imgUrl": "http://tanzil.net/pub/img/flag/nl.png",
+        "lang": "Dutch",
+        "name": "Keyzer",
+        "fname": "Salomo Keyzer",
+        "url": "http://tanzil.net/trans/nl.keyzer&type=xml"
+      },
+      {
+        "id": "en.ahmedali",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Ahmed Ali",
+        "fname": "Ahmed Ali",
+        "url": "http://tanzil.net/trans/en.ahmedali&type=xml"
+      },
+      {
+        "id": "en.ahmedraza",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Ahmed Raza Khan",
+        "fname": "Ahmed Raza Khan",
+        "url": "http://tanzil.net/trans/en.ahmedraza&type=xml"
+      },
+      {
+        "id": "en.arberry",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Arberry",
+        "fname": "A. J. Arberry",
+        "url": "http://tanzil.net/trans/en.arberry&type=xml"
+      },
+      {
+        "id": "en.asad",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Asad",
+        "fname": "Muhammad Asad",
+        "url": "http://tanzil.net/trans/en.asad&type=xml"
+      },
+      {
+        "id": "en.daryabadi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Daryabadi",
+        "fname": "Abdul Majid Daryabadi",
+        "url": "http://tanzil.net/trans/en.daryabadi&type=xml"
+      },
+      {
+        "id": "en.hilali",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Hilali & Khan",
+        "fname": "Muhammad Taqi-ud-Din al-Hilali and Muhammad Muhsin Khan",
+        "url": "http://tanzil.net/trans/en.hilali&type=xml"
+      },
+      {
+        "id": "en.maududi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Maududi",
+        "fname": "Abul Ala Maududi",
+        "url": "http://tanzil.net/trans/en.maududi&type=xml"
+      },
+      {
+        "id": "en.pickthall",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Pickthall",
+        "fname": "Mohammed Marmaduke William Pickthall",
+        "url": "http://tanzil.net/trans/en.pickthall&type=xml"
+      },
+      {
+        "id": "en.qaribullah",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Qaribullah & Darwish",
+        "fname": "Hasan al-Fatih Qaribullah and Ahmad Darwish",
+        "url": "http://tanzil.net/trans/en.qaribullah&type=xml"
+      },
+      {
+        "id": "en.sahih",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Saheeh International",
+        "fname": "Saheeh International",
+        "url": "http://tanzil.net/trans/en.sahih&type=xml"
+      },
+      {
+        "id": "en.sarwar",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Sarwar",
+        "fname": "Muhammad Sarwar",
+        "url": "http://tanzil.net/trans/en.sarwar&type=xml"
+      },
+      {
+        "id": "en.shakir",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Shakir",
+        "fname": "Mohammad Habib Shakir",
+        "url": "http://tanzil.net/trans/en.shakir&type=xml"
+      },
+      {
+        "id": "en.transliteration",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Transliteration",
+        "fname": "English Transliteration",
+        "url": "http://tanzil.net/trans/en.transliteration&type=xml"
+      },
+      {
+        "id": "en.wahiduddin",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Wahiduddin Khan",
+        "fname": "Wahiduddin Khan",
+        "url": "http://tanzil.net/trans/en.wahiduddin&type=xml"
+      },
+      {
+        "id": "en.yusufali",
+        "imgUrl": "http://tanzil.net/pub/img/flag/us.png",
+        "lang": "English",
+        "name": "Yusuf Ali",
+        "fname": "Abdullah Yusuf Ali",
+        "url": "http://tanzil.net/trans/en.yusufali&type=xml"
+      },
+      {
+        "id": "fr.hamidullah",
+        "imgUrl": "http://tanzil.net/pub/img/flag/fr.png",
+        "lang": "French",
+        "name": "Hamidullah",
+        "fname": "Muhammad Hamidullah",
+        "url": "http://tanzil.net/trans/fr.hamidullah&type=xml"
+      },
+      {
+        "id": "de.aburida",
+        "imgUrl": "http://tanzil.net/pub/img/flag/de.png",
+        "lang": "German",
+        "name": "Abu Rida",
+        "fname": "Abu Rida Muhammad ibn Ahmad ibn Rassoul",
+        "url": "http://tanzil.net/trans/de.aburida&type=xml"
+      },
+      {
+        "id": "de.bubenheim",
+        "imgUrl": "http://tanzil.net/pub/img/flag/de.png",
+        "lang": "German",
+        "name": "Bubenheim & Elyas",
+        "fname": "A. S. F. Bubenheim and N. Elyas",
+        "url": "http://tanzil.net/trans/de.bubenheim&type=xml"
+      },
+      {
+        "id": "de.khoury",
+        "imgUrl": "http://tanzil.net/pub/img/flag/de.png",
+        "lang": "German",
+        "name": "Khoury",
+        "fname": "Adel Theodor Khoury",
+        "url": "http://tanzil.net/trans/de.khoury&type=xml"
+      },
+      {
+        "id": "de.zaidan",
+        "imgUrl": "http://tanzil.net/pub/img/flag/de.png",
+        "lang": "German",
+        "name": "Zaidan",
+        "fname": "Amir Zaidan",
+        "url": "http://tanzil.net/trans/de.zaidan&type=xml"
+      },
+      {
+        "id": "ha.gumi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ng.png",
+        "lang": "Hausa",
+        "name": "Gumi",
+        "fname": "Abubakar Mahmoud Gumi",
+        "url": "http://tanzil.net/trans/ha.gumi&type=xml"
+      },
+      {
+        "id": "hi.farooq",
+        "imgUrl": "http://tanzil.net/pub/img/flag/in.png",
+        "lang": "Hindi",
+        "name": "फ़ारूक़ ख़ान & अहमद",
+        "fname": "Muhammad Farooq Khan and Muhammad Ahmed",
+        "url": "http://tanzil.net/trans/hi.farooq&type=xml"
+      },
+      {
+        "id": "hi.hindi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/in.png",
+        "lang": "Hindi",
+        "name": "फ़ारूक़ ख़ान & नदवी",
+        "fname": "Suhel Farooq Khan and Saifur Rahman Nadwi",
+        "url": "http://tanzil.net/trans/hi.hindi&type=xml"
+      },
+      {
+        "id": "id.indonesian",
+        "imgUrl": "http://tanzil.net/pub/img/flag/id.png",
+        "lang": "Indonesian",
+        "name": "Bahasa Indonesia",
+        "fname": "Unknown",
+        "url": "http://tanzil.net/trans/id.indonesian&type=xml"
+      },
+      {
+        "id": "id.muntakhab",
+        "imgUrl": "http://tanzil.net/pub/img/flag/id.png",
+        "lang": "Indonesian",
+        "name": "Quraish Shihab",
+        "fname": "Muhammad Quraish Shihab et al.",
+        "url": "http://tanzil.net/trans/id.muntakhab&type=xml"
+      },
+      {
+        "id": "it.piccardo",
+        "imgUrl": "http://tanzil.net/pub/img/flag/it.png",
+        "lang": "Italian",
+        "name": "Piccardo",
+        "fname": "Hamza Roberto Piccardo",
+        "url": "http://tanzil.net/trans/it.piccardo&type=xml"
+      },
+      {
+        "id": "ja.japanese",
+        "imgUrl": "http://tanzil.net/pub/img/flag/jp.png",
+        "lang": "Japanese",
+        "name": "Japanese",
+        "fname": "Unknown",
+        "url": "http://tanzil.net/trans/ja.japanese&type=xml"
+      },
+      {
+        "id": "ko.korean",
+        "imgUrl": "http://tanzil.net/pub/img/flag/kr.png",
+        "lang": "Korean",
+        "name": "Korean",
+        "fname": "Unknown",
+        "url": "http://tanzil.net/trans/ko.korean&type=xml"
+      },
+      {
+        "id": "ku.asan",
+        "imgUrl": "http://tanzil.net/pub/img/flag/iq.png",
+        "lang": "Kurdish",
+        "name": "ته‌فسیری ئاسان",
+        "fname": "Burhan Muhammad-Amin",
+        "url": "http://tanzil.net/trans/ku.asan&type=xml"
+      },
+      {
+        "id": "ms.basmeih",
+        "imgUrl": "http://tanzil.net/pub/img/flag/my.png",
+        "lang": "Malay",
+        "name": "Basmeih",
+        "fname": "Abdullah Muhammad Basmeih",
+        "url": "http://tanzil.net/trans/ms.basmeih&type=xml"
+      },
+      {
+        "id": "ml.abdulhameed",
+        "imgUrl": "http://tanzil.net/pub/img/flag/in.png",
+        "lang": "Malayalam",
+        "name": "അബ്ദുല്‍ ഹമീദ് & പറപ്പൂര്‍",
+        "fname": "Cheriyamundam Abdul Hameed and Kunhi Mohammed Parappoor",
+        "url": "http://tanzil.net/trans/ml.abdulhameed&type=xml"
+      },
+      {
+        "id": "no.berg",
+        "imgUrl": "http://tanzil.net/pub/img/flag/no.png",
+        "lang": "Norwegian",
+        "name": "Einar Berg",
+        "fname": "Einar Berg",
+        "url": "http://tanzil.net/trans/no.berg&type=xml"
+      },
+      {
+        "id": "fa.ghomshei",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "الهی قمشه‌ای",
+        "fname": "Mahdi Elahi Ghomshei",
+        "url": "http://tanzil.net/trans/fa.ghomshei&type=xml"
+      },
+      {
+        "id": "fa.ansarian",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "انصاریان",
+        "fname": "Hussain Ansarian",
+        "url": "http://tanzil.net/trans/fa.ansarian&type=xml"
+      },
+      {
+        "id": "fa.ayati",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "آیتی",
+        "fname": "AbdolMohammad Ayati",
+        "url": "http://tanzil.net/trans/fa.ayati&type=xml"
+      },
+      {
+        "id": "fa.bahrampour",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "بهرام پور",
+        "fname": "Abolfazl Bahrampour",
+        "url": "http://tanzil.net/trans/fa.bahrampour&type=xml"
+      },
+      {
+        "id": "fa.khorramdel",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "خرمدل",
+        "fname": "Mostafa Khorramdel",
+        "url": "http://tanzil.net/trans/fa.khorramdel&type=xml"
+      },
+      {
+        "id": "fa.khorramshahi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "خرمشاهی",
+        "fname": "Baha'oddin Khorramshahi",
+        "url": "http://tanzil.net/trans/fa.khorramshahi&type=xml"
+      },
+      {
+        "id": "fa.sadeqi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "صادقی تهرانی",
+        "fname": "Mohammad Sadeqi Tehrani",
+        "url": "http://tanzil.net/trans/fa.sadeqi&type=xml"
+      },
+      {
+        "id": "fa.fooladvand",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "فولادوند",
+        "fname": "Mohammad Mahdi Fooladvand",
+        "url": "http://tanzil.net/trans/fa.fooladvand&type=xml"
+      },
+      {
+        "id": "fa.mojtabavi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "مجتبوی",
+        "fname": "Sayyed Jalaloddin Mojtabavi",
+        "url": "http://tanzil.net/trans/fa.mojtabavi&type=xml"
+      },
+      {
+        "id": "fa.moezzi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "معزی",
+        "fname": "Mohammad Kazem Moezzi",
+        "url": "http://tanzil.net/trans/fa.moezzi&type=xml"
+      },
+      {
+        "id": "fa.makarem",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ir.png",
+        "lang": "Persian",
+        "name": "مکارم شیرازی",
+        "fname": "Naser Makarem Shirazi",
+        "url": "http://tanzil.net/trans/fa.makarem&type=xml"
+      },
+      {
+        "id": "pl.bielawskiego",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pl.png",
+        "lang": "Polish",
+        "name": "Bielawskiego",
+        "fname": "Józefa Bielawskiego",
+        "url": "http://tanzil.net/trans/pl.bielawskiego&type=xml"
+      },
+      {
+        "id": "pt.elhayek",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pt.png",
+        "lang": "Portuguese",
+        "name": "El-Hayek",
+        "fname": "Samir El-Hayek",
+        "url": "http://tanzil.net/trans/pt.elhayek&type=xml"
+      },
+      {
+        "id": "ro.grigore",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ro.png",
+        "lang": "Romanian",
+        "name": "Grigore",
+        "fname": "George Grigore",
+        "url": "http://tanzil.net/trans/ro.grigore&type=xml"
+      },
+      {
+        "id": "ru.abuadel",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Абу Адель",
+        "fname": "Abu Adel",
+        "url": "http://tanzil.net/trans/ru.abuadel&type=xml"
+      },
+      {
+        "id": "ru.muntahab",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Аль-Мунтахаб",
+        "fname": "Ministry of Awqaf, Egypt",
+        "url": "http://tanzil.net/trans/ru.muntahab&type=xml"
+      },
+      {
+        "id": "ru.krachkovsky",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Крачковский",
+        "fname": "Ignaty Yulianovich Krachkovsky",
+        "url": "http://tanzil.net/trans/ru.krachkovsky&type=xml"
+      },
+      {
+        "id": "ru.kuliev",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Кулиев",
+        "fname": "Elmir Kuliev",
+        "url": "http://tanzil.net/trans/ru.kuliev&type=xml"
+      },
+      {
+        "id": "ru.kuliev-alsaadi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Кулиев + ас-Саади",
+        "fname": "Elmir Kuliev (with Abd ar-Rahman as-Saadi's commentaries)",
+        "url": "http://tanzil.net/trans/ru.kuliev-alsaadi&type=xml"
+      },
+      {
+        "id": "ru.osmanov",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Османов",
+        "fname": "Magomed-Nuri Osmanovich Osmanov",
+        "url": "http://tanzil.net/trans/ru.osmanov&type=xml"
+      },
+      {
+        "id": "ru.porokhova",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Порохова",
+        "fname": "V. Porokhova",
+        "url": "http://tanzil.net/trans/ru.porokhova&type=xml"
+      },
+      {
+        "id": "ru.sablukov",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Russian",
+        "name": "Саблуков",
+        "fname": "Gordy Semyonovich Sablukov",
+        "url": "http://tanzil.net/trans/ru.sablukov&type=xml"
+      },
+      {
+        "id": "sd.amroti",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Sindhi",
+        "name": "امروٽي",
+        "fname": "Taj Mehmood Amroti",
+        "url": "http://tanzil.net/trans/sd.amroti&type=xml"
+      },
+      {
+        "id": "so.abduh",
+        "imgUrl": "http://tanzil.net/pub/img/flag/so.png",
+        "lang": "Somali",
+        "name": "Abduh",
+        "fname": "Mahmud Muhammad Abduh",
+        "url": "http://tanzil.net/trans/so.abduh&type=xml"
+      },
+      {
+        "id": "es.asad",
+        "imgUrl": "http://tanzil.net/pub/img/flag/es.png",
+        "lang": "Spanish",
+        "name": "Asad",
+        "fname": "Muhammad Asad - Abdurrasak Pérez",
+        "url": "http://tanzil.net/trans/es.asad&type=xml"
+      },
+      {
+        "id": "es.cortes",
+        "imgUrl": "http://tanzil.net/pub/img/flag/es.png",
+        "lang": "Spanish",
+        "name": "Cortes",
+        "fname": "Julio Cortes",
+        "url": "http://tanzil.net/trans/es.cortes&type=xml"
+      },
+      {
+        "id": "sw.barwani",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ke.png",
+        "lang": "Swahili",
+        "name": "Al-Barwani",
+        "fname": "Ali Muhsin Al-Barwani",
+        "url": "http://tanzil.net/trans/sw.barwani&type=xml"
+      },
+      {
+        "id": "sv.bernstrom",
+        "imgUrl": "http://tanzil.net/pub/img/flag/se.png",
+        "lang": "Swedish",
+        "name": "Bernström",
+        "fname": "Knut Bernström",
+        "url": "http://tanzil.net/trans/sv.bernstrom&type=xml"
+      },
+      {
+        "id": "tg.ayati",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tj.png",
+        "lang": "Tajik",
+        "name": "Оятӣ",
+        "fname": "AbdolMohammad Ayati",
+        "url": "http://tanzil.net/trans/tg.ayati&type=xml"
+      },
+      {
+        "id": "ta.tamil",
+        "imgUrl": "http://tanzil.net/pub/img/flag/in.png",
+        "lang": "Tamil",
+        "name": "ஜான் டிரஸ்ட்",
+        "fname": "Jan Turst Foundation",
+        "url": "http://tanzil.net/trans/ta.tamil&type=xml"
+      },
+      {
+        "id": "tt.nugman",
+        "imgUrl": "http://tanzil.net/pub/img/flag/ru.png",
+        "lang": "Tatar",
+        "name": "Yakub Ibn Nugman",
+        "fname": "Yakub Ibn Nugman",
+        "url": "http://tanzil.net/trans/tt.nugman&type=xml"
+      },
+      {
+        "id": "th.thai",
+        "imgUrl": "http://tanzil.net/pub/img/flag/th.png",
+        "lang": "Thai",
+        "name": "ภาษาไทย",
+        "fname": "King Fahad Quran Complex",
+        "url": "http://tanzil.net/trans/th.thai&type=xml"
+      },
+      {
+        "id": "tr.golpinarli",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Abdulbakî Gölpınarlı",
+        "fname": "Abdulbaki Golpinarli",
+        "url": "http://tanzil.net/trans/tr.golpinarli&type=xml"
+      },
+      {
+        "id": "tr.bulac",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Alİ Bulaç",
+        "fname": "Alİ Bulaç",
+        "url": "http://tanzil.net/trans/tr.bulac&type=xml"
+      },
+      {
+        "id": "tr.transliteration",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Çeviriyazı",
+        "fname": "Muhammet Abay",
+        "url": "http://tanzil.net/trans/tr.transliteration&type=xml"
+      },
+      {
+        "id": "tr.diyanet",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Diyanet İşleri",
+        "fname": "Diyanet Isleri",
+        "url": "http://tanzil.net/trans/tr.diyanet&type=xml"
+      },
+      {
+        "id": "tr.vakfi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Diyanet Vakfı",
+        "fname": "Diyanet Vakfi",
+        "url": "http://tanzil.net/trans/tr.vakfi&type=xml"
+      },
+      {
+        "id": "tr.yuksel",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Edip Yüksel",
+        "fname": "Edip Yüksel",
+        "url": "http://tanzil.net/trans/tr.yuksel&type=xml"
+      },
+      {
+        "id": "tr.yazir",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Elmalılı Hamdi Yazır",
+        "fname": "Elmalili Hamdi Yazir",
+        "url": "http://tanzil.net/trans/tr.yazir&type=xml"
+      },
+      {
+        "id": "tr.ozturk",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Öztürk",
+        "fname": "Yasar Nuri Ozturk",
+        "url": "http://tanzil.net/trans/tr.ozturk&type=xml"
+      },
+      {
+        "id": "tr.yildirim",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Suat Yıldırım",
+        "fname": "Suat Yildirim",
+        "url": "http://tanzil.net/trans/tr.yildirim&type=xml"
+      },
+      {
+        "id": "tr.ates",
+        "imgUrl": "http://tanzil.net/pub/img/flag/tr.png",
+        "lang": "Turkish",
+        "name": "Süleyman Ateş",
+        "fname": "Suleyman Ates",
+        "url": "http://tanzil.net/trans/tr.ates&type=xml"
+      },
+      {
+        "id": "ur.maududi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "ابوالاعلی مودودی",
+        "fname": "Abul A'ala Maududi",
+        "url": "http://tanzil.net/trans/ur.maududi&type=xml"
+      },
+      {
+        "id": "ur.kanzuliman",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "احمد رضا خان",
+        "fname": "Ahmed Raza Khan",
+        "url": "http://tanzil.net/trans/ur.kanzuliman&type=xml"
+      },
+      {
+        "id": "ur.ahmedali",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "احمد علی",
+        "fname": "Ahmed Ali",
+        "url": "http://tanzil.net/trans/ur.ahmedali&type=xml"
+      },
+      {
+        "id": "ur.jalandhry",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "جالندہری",
+        "fname": "Fateh Muhammad Jalandhry",
+        "url": "http://tanzil.net/trans/ur.jalandhry&type=xml"
+      },
+      {
+        "id": "ur.qadri",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "طاہر القادری",
+        "fname": "Tahir ul Qadri",
+        "url": "http://tanzil.net/trans/ur.qadri&type=xml"
+      },
+      {
+        "id": "ur.jawadi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "علامہ جوادی",
+        "fname": "Syed Zeeshan Haider Jawadi",
+        "url": "http://tanzil.net/trans/ur.jawadi&type=xml"
+      },
+      {
+        "id": "ur.junagarhi",
+        "imgUrl": "http://tanzil.net/pub/img/flag/pk.png",
+        "lang": "Urdu",
+        "name": "محمد جوناگڑھی",
+        "fname": "Muhammad Junagarhi",
+        "url": "http://tanzil.net/trans/ur.junagarhi&type=xml"
+      },
+      {
+        "id": "ug.saleh",
+        "imgUrl": "http://tanzil.net/pub/img/flag/cn.png",
+        "lang": "Uyghur",
+        "name": "محمد صالح",
+        "fname": "Muhammad Saleh",
+        "url": "http://tanzil.net/trans/ug.saleh&type=xml"
+      },
+      {
+        "id": "uz.sodik",
+        "imgUrl": "http://tanzil.net/pub/img/flag/uz.png",
+        "lang": "Uzbek",
+        "name": "Мухаммад Содик",
+        "fname": "Muhammad Sodik Muhammad Yusuf",
+        "url": "http://tanzil.net/trans/uz.sodik&type=xml"
+      }
+    ]
+  }
