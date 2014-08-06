@@ -5,11 +5,12 @@
             <ion-content class="has-header" delegate-handle="mainScroll">
                 
                 <div>Sura ID = {{vm.suraID}}</div>
-                
-                <div  style="padding:20px 20px 20px 20px;text-align: justify;direction:rtl; font-family: 'KFGQPC Uthman Taha Naskh', KFGQPC_Naskh; font-size: 1.15em; font-weight: normal;">
+                <button ng-click="vm.slideTo('89')" class="button">click one</button>
+
+                <div  style="padding:20px 20px 20px 20px;text-align: justify;direction:rtl; font-size: 1.15em; font-weight: normal;">
                 <h4 class="padding text-center" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
                     <div style="line-height: 2.35em;">
-                        <span id="{{s.suraID}}:{{s.ayaID}}" ng-click="vm.slideTo('{{s.suraID}}:{{s.ayaID}}')" ng-repeat="s in vm.surasVerses.ayas">
+                        <span id="{{s.ayaID}}" ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.surasVerses.ayas">
                             {{s.arabic}} <span class="positive" style="font-size: .80em;">﴿{{s.ayaID}}﴾</span>
                         </span>
                     </div>

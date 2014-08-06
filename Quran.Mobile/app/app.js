@@ -8,8 +8,8 @@ angular.module("main", ['ionic']).controller("mainController", main.mainControll
         url: "/main",
         abstract: true,
         templateUrl: "app/view/main.html"
-    }).state('main.home', {
-        url: "/home/:id",
+    }).state('main.sura', {
+        url: "/sura/:id",
         views: {
             'menuContent': {
                 templateUrl: "app/view/sura.html",
@@ -42,6 +42,6 @@ angular.module("main", ['ionic']).controller("mainController", main.mainControll
         }
     });
 
-    $urlRouterProvider.otherwise("/main/home/");
+    $urlRouterProvider.otherwise("/main/sura/");
 });
 //# sourceMappingURL=app.js.map

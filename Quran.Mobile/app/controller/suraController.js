@@ -22,8 +22,6 @@
                 this.ayaID = (suraParam[1] === undefined) ? 1 : +suraParam[1];
             }
 
-            //$scope.vm.suraID = this.suraID;
-            //$scope.vm.ayaID = this.ayaID;
             this.hasBismillah = (this.suraID === 1 || this.suraID === 9) ? false : true;
 
             if (this.suraID > 0)
@@ -34,14 +32,16 @@
             this.suraService.getSura(this.suraID).then(function (s) {
                 _this.$scope.vm.surasVerses = s;
 
-                //this.slideTo(this.suraID + ':' + this.ayaID);
-                _this.slideTo(_this.suraID + ':' + _this.ayaID);
+                //slide to position
+                _this.slideTo(_this.ayaID);
             });
         };
 
-        suraController.prototype.slideTo = function (suraID) {
-            this.$location.hash(suraID);
-            this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll("#" + suraID, true);
+        suraController.prototype.slideTo = function (ayaID) {
+            if (ayaID > 1) {
+                this.$location.hash(ayaID);
+                this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(ayaID, true);
+            }
         };
 
         //index.html
