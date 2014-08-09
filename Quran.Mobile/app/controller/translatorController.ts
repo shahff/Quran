@@ -14,7 +14,6 @@ module main {
             var that = this;
 
             $scope.vm = this;
-
             $scope.main.showBusy();
 
             this.getTranslators();

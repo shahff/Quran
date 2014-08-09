@@ -15,24 +15,13 @@ var main;
         }
         mainController.prototype.showBusy = function () {
             // Show the loading overlay and text
-            this.$scope.loading = this.$ionicLoading.show({
-                // The text to display in the loading indicator
-                content: 'Loading',
-                // The animation to use
-                animation: 'fade-in',
-                // Will a dark overlay or backdrop cover the entire view
-                showBackdrop: true,
-                // The maximum width of the loading indicator
-                // Text will be wrapped if longer than maxWidth
-                maxWidth: 200,
-                // The delay in showing the indicator
-                showDelay: 500
+            this.$ionicLoading.show({
+                template: 'Loading...'
             });
         };
 
         mainController.prototype.hideBusy = function () {
             this.$ionicLoading.hide();
-            //this.$scope.loading.hide();
         };
         mainController.$inject = ['$scope', '$timeout', '$ionicLoading', 'appService'];
         return mainController;

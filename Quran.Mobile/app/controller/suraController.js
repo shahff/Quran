@@ -30,7 +30,8 @@
         suraController.prototype.getSura = function () {
             var _this = this;
             this.suraService.getSura(this.suraID).then(function (s) {
-                _this.$scope.vm.surasVerses = s;
+                s.selectedAyaID = _this.ayaID;
+                _this.$scope.vm.selectedSura = s;
 
                 //slide to position
                 _this.slideTo(_this.ayaID);
@@ -38,10 +39,23 @@
         };
 
         suraController.prototype.slideTo = function (ayaID) {
+            this.selectedSura.selectedAyaID = ayaID;
             if (ayaID > 1) {
                 this.$location.hash(ayaID);
                 this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(ayaID, true);
             }
+        };
+
+        suraController.prototype.play = function () {
+            var ayaID = this.$location.$$hash;
+            if (ayaID++ > +this.selectedSura.numberOfAyas - 1) {
+                //move next sura
+                var path = '/main/sura/' + (+this.selectedSura.id + 1);
+                this.$location.hash(1);
+                this.$location.path(path);
+                return;
+            }
+            this.slideTo(ayaID);
         };
 
         //index.html

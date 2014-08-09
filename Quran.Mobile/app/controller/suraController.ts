@@ -3,7 +3,7 @@
     
     export class suraController {
 
-        public suras: main.model.Sura[];
+        public selectedSura: main.model.Sura;
         public suraID: number; //sample - 2:85
         public ayaID: number;
         hasBismillah: boolean;
@@ -21,18 +21,19 @@
                 var suraParam = this.$stateParams.id.split(':');
                 this.suraID = +suraParam[0];
                 this.ayaID = (suraParam[1] === undefined) ? 1 : +suraParam[1];
-
             }
-            
+           
             this.hasBismillah = (this.suraID === 1 || this.suraID === 9)?false:true;
             
+
             if (this.suraID > 0)
               this.getSura();
         }
         
         getSura(): void {
             this.suraService.getSura(this.suraID).then(s=> {
-                this.$scope.vm.surasVerses = s;
+                s.selectedAyaID = this.ayaID;
+                this.$scope.vm.selectedSura = s;
 
                 //slide to position
                 this.slideTo(this.ayaID);
@@ -40,11 +41,28 @@
         }
 
         slideTo(ayaID: number): void {
-
+            this.selectedSura.selectedAyaID = ayaID;
             if (ayaID > 1) {
                 this.$location.hash(ayaID);
                 this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(ayaID, true);
             }
+        }
+
+
+        play(): void {
+
+            
+            var ayaID = this.$location.$$hash;
+            if (ayaID++ > +this.selectedSura.numberOfAyas -1)
+            {
+                //move next sura
+                var path = '/main/sura/' + (+this.selectedSura.id + 1);
+                this.$location.hash(1);
+                this.$location.path(path);
+                return;
+
+            }
+            this.slideTo(ayaID);
         }
 
 
