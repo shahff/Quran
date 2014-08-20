@@ -4,7 +4,7 @@
     export class Aya {
         ayaID: number;
         arabic: string;
-        english: string;
+        translation: string;
         transliteration: string;
     }
 
@@ -39,6 +39,7 @@
         url: string;
     }
 
+    //stored in DB
     export class AppSetting {
 
         selectedReciter: Reciter;
@@ -48,6 +49,15 @@
     }
 
     
+    export class CONSTANT {
+
+        static localPersistentPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/';
+        static translationURL: string = 'http://tanzil.net/trans/';
+        static localTranslationPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
+        static localAudioPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
+
+    }
+
     
 }
  

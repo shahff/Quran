@@ -121,6 +121,7 @@
     <Content Include="config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="content\en.yusufali.txt" />
     <Content Include="content\quran-simple-enhanced.txt" />
     <Content Include="content\reciterData.json" />
     <Content Include="content\suraData.json" />

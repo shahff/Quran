@@ -1,4 +1,5 @@
-﻿/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
+﻿/// <reference path="../../scripts/typings/cordova/plugins/filetransfer.d.ts" />
+/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 var main;
 (function (main) {
     "use strict";
@@ -30,6 +31,33 @@ var main;
             });
 
             return deferral.promise;
+        };
+
+        translatorService.prototype.readFile = function () {
+            var filePath = main.model.CONSTANT.localTranslationPath + "en.yusufali.txt";
+            this.$http.get(filePath, { cache: true }).then(function (s) {
+                alert(s.data);
+            }).catch(function (e) {
+                return alert(e);
+            });
+        };
+
+        translatorService.prototype.downloadFile = function (translator) {
+            var fileTransfer = new FileTransfer();
+            var translator = "en.yusufali";
+            var uri = encodeURI(main.model.CONSTANT.translationURL + translator);
+            var filePath = main.model.CONSTANT.localTranslationPath + translator + ".txt";
+
+            fileTransfer.download(uri, filePath, function (entry) {
+                alert('ok' + entry.fullPath + ' - ' + entry.toURL);
+
+                console.log("download complete: " + entry.fullPath);
+            }, function (error) {
+                alert(error.source + '  - ' + error.target + ' - ' + error.code);
+                console.log("download error source " + error.source);
+                console.log("download error target " + error.target);
+                console.log("upload error code" + error.code);
+            }, false, true);
         };
         translatorService.$inject = ['$http', '$q'];
         return translatorService;

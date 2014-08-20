@@ -55,29 +55,34 @@
             var deferral = this.$q.defer<main.model.Sura>();
 
             var suraDetails = this.getSuraByID(suraID),
-                quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true });
-            this.$q.all([suraDetails,quranText]).then(results => {
-                //this.$http.get('content/quran-simple-enhanced.txt', { cache: true }).then(s => {
+                quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true }),
+                translationText = this.$http.get('content/en.yusufali.txt', { cache: true });
 
+            this.$q.all([suraDetails, quranText, translationText]).then(results => {
+                
                 var sura:main.model.Sura = results[0];
-                var s = results[1];
-                var quranString: string = <string>s.data;
-                var csvArray = this.csvToArray(quranString.trim());
+                var quranString: string = <string>results[1].data;
+                var translationString: string = <string>results[2].data;
+                var quranArray = this.csvToArray(quranString.trim());
+                var translationArray = this.csvToArray(translationString.trim());
+
+                var translationSura = _.where(translationArray, { suraID: suraID.toString() });
 
                 //var entries = [];
                 var ayas: main.model.Aya[] = [];
 
-                for (var i = 0; i < csvArray.length; ++i) {
-                    var row = csvArray[i];
+                 for (var i = 0; i < quranArray.length; ++i) {
+                     var row = quranArray[i];
 
-                         
-                    if (row.suraID === suraID.toString()) {
+                     if (row.suraID === suraID.toString()) {
                         if (row.suraID != 1 && row.ayaID < 2)
                             row.content = row.content.replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "");
                         
                         var a = new main.model.Aya();
                         a.arabic = row.content;
                         a.ayaID = row.ayaID;
+                        var trans = _.where(translationSura, { ayaID: row.ayaID });
+                        a.translation = trans[0].content;
                         ayas.push(a);
                         //entries.push(row);
                     }

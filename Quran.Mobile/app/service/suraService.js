@@ -51,19 +51,22 @@
             var _this = this;
             var deferral = this.$q.defer();
 
-            var suraDetails = this.getSuraByID(suraID), quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true });
-            this.$q.all([suraDetails, quranText]).then(function (results) {
-                //this.$http.get('content/quran-simple-enhanced.txt', { cache: true }).then(s => {
+            var suraDetails = this.getSuraByID(suraID), quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true }), translationText = this.$http.get('content/en.yusufali.txt', { cache: true });
+
+            this.$q.all([suraDetails, quranText, translationText]).then(function (results) {
                 var sura = results[0];
-                var s = results[1];
-                var quranString = s.data;
-                var csvArray = _this.csvToArray(quranString.trim());
+                var quranString = results[1].data;
+                var translationString = results[2].data;
+                var quranArray = _this.csvToArray(quranString.trim());
+                var translationArray = _this.csvToArray(translationString.trim());
+
+                var translationSura = _.where(translationArray, { suraID: suraID.toString() });
 
                 //var entries = [];
                 var ayas = [];
 
-                for (var i = 0; i < csvArray.length; ++i) {
-                    var row = csvArray[i];
+                for (var i = 0; i < quranArray.length; ++i) {
+                    var row = quranArray[i];
 
                     if (row.suraID === suraID.toString()) {
                         if (row.suraID != 1 && row.ayaID < 2)
@@ -72,6 +75,8 @@
                         var a = new main.model.Aya();
                         a.arabic = row.content;
                         a.ayaID = row.ayaID;
+                        var trans = _.where(translationSura, { ayaID: row.ayaID });
+                        a.translation = trans[0].content;
                         ayas.push(a);
                         //entries.push(row);
                     }

@@ -7,7 +7,7 @@ module main {
 
         public translators: main.model.Translator[];
         public selectedTranslator: string;
-        public isDownloaded: boolean;
+        public isDownloaded: boolean = false;
 
         public static $inject = ['$scope', 'translatorService','appService'];
         constructor(private $scope, private translatorService: translatorService, private appService: appService) {
@@ -19,7 +19,7 @@ module main {
             this.getTranslators();
             //$scope.vm.isDownloaded = this.isDownloaded = true;
             
-            this.$scope.vm.selectedTranslator = this.selectedTranslator = appService.appSetting.selectedTranslator.name;
+            this.selectedTranslator = appService.appSetting.selectedTranslator.name;
         }
 
         getTranslators(): void {
@@ -36,6 +36,13 @@ module main {
             this.appService.storeAppSetting();
         }
 
+        downloadFile(): void {
+            this.translatorService.downloadFile('sds');
+        }
+
+        readFile(): void {
+            this.translatorService.readFile();
+        }
     }
 }
 

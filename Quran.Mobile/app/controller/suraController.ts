@@ -7,12 +7,14 @@
         public suraID: number; //sample - 2:85
         public ayaID: number;
         hasBismillah: boolean;
+        showTranslation: boolean;
+        public displayContentType: string = 'arabic';
 
         public static $inject = ['$scope', '$stateParams', '$location','$ionicScrollDelegate', 'appService','suraService'];
         constructor(private $scope, private $stateParams, private $location, private $ionicScrollDelegate, private appService: appService,private suraService: suraService) {
-            
+    
             $scope.vm = this;
-
+            
             //sample id = 2:85
             this.suraID = 19;
             this.ayaID = 1;
@@ -25,7 +27,6 @@
            
             this.hasBismillah = (this.suraID === 1 || this.suraID === 9)?false:true;
             
-
             if (this.suraID > 0)
               this.getSura();
         }
@@ -37,6 +38,7 @@
 
                 //slide to position
                 this.slideTo(this.ayaID);
+                
             });
         }
 
@@ -44,7 +46,7 @@
             this.selectedSura.selectedAyaID = ayaID;
             if (ayaID > 1) {
                 this.$location.hash(ayaID);
-                this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(ayaID, true);
+                this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
             }
         }
 
@@ -65,6 +67,10 @@
             this.slideTo(ayaID);
         }
 
+        displayContent(displayContent: string): void {
+            this.displayContentType = displayContent;
+            //this.$scope.$apply();
+        }
 
         //index.html
         getSuraIndex(): void {

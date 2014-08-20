@@ -14,6 +14,7 @@ angular.module("main", ['ionic'])
     .service("reciterService", main.reciterService)
     .service("translatorService", main.translatorService)
 
+
     .config(function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider

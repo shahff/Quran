@@ -8,6 +8,7 @@ var main;
             this.$scope = $scope;
             this.translatorService = translatorService;
             this.appService = appService;
+            this.isDownloaded = false;
             var that = this;
 
             $scope.vm = this;
@@ -16,7 +17,7 @@ var main;
             this.getTranslators();
 
             //$scope.vm.isDownloaded = this.isDownloaded = true;
-            this.$scope.vm.selectedTranslator = this.selectedTranslator = appService.appSetting.selectedTranslator.name;
+            this.selectedTranslator = appService.appSetting.selectedTranslator.name;
         }
         translatorController.prototype.getTranslators = function () {
             var _this = this;
@@ -30,6 +31,14 @@ var main;
             this.$scope.vm.selectedTranslator = selectedItem.name;
             this.appService.appSetting.selectedTranslator = selectedItem;
             this.appService.storeAppSetting();
+        };
+
+        translatorController.prototype.downloadFile = function () {
+            this.translatorService.downloadFile('sds');
+        };
+
+        translatorController.prototype.readFile = function () {
+            this.translatorService.readFile();
         };
         translatorController.$inject = ['$scope', 'translatorService', 'appService'];
         return translatorController;

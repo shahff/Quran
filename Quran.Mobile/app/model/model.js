@@ -31,12 +31,24 @@
         })();
         model.Translator = Translator;
 
+        //stored in DB
         var AppSetting = (function () {
             function AppSetting() {
             }
             return AppSetting;
         })();
         model.AppSetting = AppSetting;
+
+        var CONSTANT = (function () {
+            function CONSTANT() {
+            }
+            CONSTANT.localPersistentPath = 'cdvfile://localhost/persistent/Quran.Mobile/';
+            CONSTANT.translationURL = 'http://tanzil.net/trans/';
+            CONSTANT.localTranslationPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
+            CONSTANT.localAudioPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
+            return CONSTANT;
+        })();
+        model.CONSTANT = CONSTANT;
     })(main.model || (main.model = {}));
     var model = main.model;
 })(main || (main = {}));

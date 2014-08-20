@@ -10,6 +10,7 @@
             this.$ionicScrollDelegate = $ionicScrollDelegate;
             this.appService = appService;
             this.suraService = suraService;
+            this.displayContentType = 'arabic';
             $scope.vm = this;
 
             //sample id = 2:85
@@ -42,7 +43,7 @@
             this.selectedSura.selectedAyaID = ayaID;
             if (ayaID > 1) {
                 this.$location.hash(ayaID);
-                this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(ayaID, true);
+                this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
             }
         };
 
@@ -56,6 +57,11 @@
                 return;
             }
             this.slideTo(ayaID);
+        };
+
+        suraController.prototype.displayContent = function (displayContent) {
+            this.displayContentType = displayContent;
+            //this.$scope.$apply();
         };
 
         //index.html
