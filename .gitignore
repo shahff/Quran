@@ -155,6 +155,10 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
+# INTEL XDK FILES
+*.xdk
+*.xdke
+
 # Modules
 /node_modules
 
