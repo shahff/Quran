@@ -3,10 +3,10 @@
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
 
-            <ion-content class="has-header" delegate-handle="mainScroll">
+            <ion-content class="has-header " delegate-handle="mainScroll" ng-class="{true: 'nightly'}[isNightly]">
                             
                 <div class="uthman-bold sura-content">
-                <h4 class="uthman-bold padding text-center" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
+                <h4 class="uthman-bold padding text-center bismillah" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
                     <div>
                         <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas">
                           <span ng-if="vm.displayContentType==='arabic'">
@@ -32,7 +32,7 @@
                 <div class="button-bar">
                     <button class="button button-icon icon ion-ios7-fastforward" ng-click="vm.play()"></button>
                     <button class="button button-icon icon ion-ios7-world lang-buttons" ng-click="showSubFooter = !showSubFooter"></button>
-                    <button class="button button-icon icon ion-contrast"></button>
+                    <button class="button button-icon icon ion-contrast" ng-click="isNightly = !isNightly"></button>
                     
                     <!-- <button ng-click="vm.slideTo('95')" class="button">select aya</button> -->
                     <!-- <button ng-click="vm.play()" class="button">Play - {{vm.selectedSura.selectedAyaID}}</button> -->

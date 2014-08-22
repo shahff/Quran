@@ -85,3 +85,9 @@
 .ayaid {
   font-size: .8em;
 }
+
+.nightly,
+.nightly .bismillah {
+  background-color: #000;
+  color: #FFF;
+}
