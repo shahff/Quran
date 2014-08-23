@@ -1,4 +1,4 @@
-﻿        <ion-view title="Sura ID = {{vm.suraID}}">
+﻿        <ion-view title="{{vm.suraID}}-{{vm.selectedSura.name}}">
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
@@ -7,7 +7,9 @@
                             
                 <div class="uthman-bold sura-content">
                 <h4 class="uthman-bold padding text-center bismillah" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
+
                     <div>
+
                         <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas">
                           <span ng-if="vm.displayContentType==='arabic'">
                             {{s.arabic}} <span class="positive ayaid">﴿{{s.ayaID}}﴾</span> 
