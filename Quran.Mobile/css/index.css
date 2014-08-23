@@ -1,2 +1,175 @@
-﻿body {
+﻿@font-face {
+  font-family: 'Uthman';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/UthmanTN.otf");
 }
+
+@font-face {
+  font-family: 'Uthman';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/UthmanTNB.otf");
+}
+
+.uthman {
+  font-family: 'Uthman';
+}
+
+.uthman-bold {
+  font-family: 'Uthman';
+  font-weight: bold;
+}
+
+.bar-jade {
+  background-color: #6d9850;
+  color: #e2ebdc;
+  border-top: 1px solid #75a356;
+  border-bottom: 1px solid #608f40;
+  box-shadow: 0 1px 1px 1px rgba(200,200,200,.5);
+}
+
+.bar-jade button,
+.bar-jade button:hover,
+.bar-jade .title {
+  color: #e2ebdc;
+}
+
+.bar-jade h1 {
+  font-family: 'Uthman';
+  font-weight: bold;
+}
+
+.bar-gray {
+  padding: 0;
+  background-color: #efefef;
+  color: #7d7d7d;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #666666;
+  box-shadow: 0 -1px 1px 1px #dfdfdf;
+}
+
+.bar-gray .button,
+.bar-gray .button:hover,
+.bar-gray .title {
+  color: #7d7d7d;
+}
+
+.bar-gray .button:hover {
+  background-color: rgba(90, 170, 36, 0.3);
+}
+
+.bar-gray .button-bar .button {
+  padding: 4px 16px;
+}
+
+.lang-buttons {
+  position: relative;
+}
+
+.lang-buttons div {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  min-width: 100%;
+  z-index:999;
+}
+
+/*
+  Sura Page
+*/
+
+.sura-content {
+  padding: 1.25em;
+  text-align: justify;
+  font-size: 1.20em;
+  line-height: 2.35;
+}
+
+.ayaid {
+  font-size: .8em;
+}
+
+.nightly,
+.nightly .bismillah {
+  background-color: #000;
+  color: #FFF;
+}
+
+/*
+  Index page
+*/
+
+.index-options {
+  background-color: #e5e5e5;
+  border-bottom: 2px solid #CCC;
+}
+
+.index-options .item-input,
+.index-options .item-input input {
+  height: auto;
+}
+
+.index-content {
+  margin-top: 3em;
+  padding: .6em;
+  background-color: #e5e5e5;
+}
+
+.sura-item {
+  width: 100%;
+  border: 0;
+  border-left: 4px solid #6d9850;
+  border-radius: .1em;
+  border-bottom: 2px solid #CCC;
+}
+
+.sura-item .name {
+  color: #2a2a2a;
+}
+
+.sura-item .engname {
+  color: #ababab;
+}
+
+.sura-item .transname {
+  color: #6d9850;
+}
+
+.sura-item .id,
+.sura-item .type {
+  position: absolute;
+  right: 16px;
+}
+
+.sura-item .id {
+  top: 20px;
+  color: #6d9850;
+}
+
+.sura-item .type {
+  bottom: 20px;
+  color: #6d9850;
+}
+
+/*
+  Reciter Page
+*/
+
+.reciter-content {
+  margin-top: 3.2em;
+}
+
+.radio-icon {
+  color: #6d9850;
+}
+
+/*
+  Translation Page
+*/
+
+.translation-content {
+  margin-top: 3.2em;
+}
+
