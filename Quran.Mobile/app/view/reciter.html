@@ -1,18 +1,18 @@
-﻿        <ion-view title="Reciter" >
+﻿        <ion-view title="Reciter: {{ vm.selectedReciter }}" >
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
-            <ion-content class="has-header">
-                
-                <div class="item item-divider">
-                    Selected Value: {{ vm.selectedReciter }}
-              </div>
+            <div class="bar bar-subheader index-options">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search" ng-model="filterList">
+                </label>                
+            </div>
+            <ion-content class="has-header reciter-content">            
 
-              <ion-radio ng-repeat="r in vm.reciters" ng-value="r.name" ng-model="vm.selectedReciter" ng-change="vm.setReciter(r)" >
+              <ion-radio ng-repeat="r in vm.reciters |filter: filterList" ng-value="r.name" ng-model="vm.selectedReciter" ng-change="vm.setReciter(r)" >
                 {{ r.fullName }}
-              </ion-radio>
-
-                
+              </ion-radio>            
                 
             </ion-content>
         </ion-view>
