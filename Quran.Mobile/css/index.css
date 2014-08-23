@@ -91,3 +91,44 @@
   background-color: #000;
   color: #FFF;
 }
+
+/*
+  Index page
+*/
+
+.index-options {
+  background-color: #e5e5e5;
+  border-bottom: 2px solid #CCC;
+}
+
+.index-options .button-bar .button {
+  border-left: 1px solid #CCC;
+  font-size: .85em;
+  font-weight: bold;
+  border-bottom: .5em solid transparent;
+}
+
+.index-options .button:hover {
+  border-bottom-color: #6d9850;
+}
+
+.index-options .button-bar .button:first-child {
+  border-left: 0;
+}
+
+.index-content {
+  margin-top: 3em;
+  padding: .6em;
+  background-color: #e5e5e5;
+}
+
+.index-content .sura-item {
+  width: 100%;
+  border: 0;
+  border-radius: .1em;
+  border-bottom: 2px solid #CCC;
+/*
+green: #7eb55a;
+heading: #2a2a2a;
+subhead: ababab;
+}
