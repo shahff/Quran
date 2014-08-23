@@ -35,6 +35,11 @@
   color: #e2ebdc;
 }
 
+.bar-jade h1 {
+  font-family: 'Uthman';
+  font-weight: bold;
+}
+
 .bar-gray {
   padding: 0;
   background-color: #efefef;
@@ -149,13 +154,22 @@
 }
 
 /*
-
+  Reciter Page
 */
 
 .reciter-content {
   margin-top: 3.2em;
 }
 
-.reciter-content .radio-icon {
+.radio-icon {
   color: #6d9850;
 }
+
+/*
+  Translation Page
+*/
+
+.translation-content {
+  margin-top: 3.2em;
+}
+
