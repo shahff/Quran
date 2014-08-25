@@ -8,10 +8,10 @@ var main;
         function appService() {
             var _this = this;
             this.getAppSetting().then(function (app) {
-                if (app == null)
-                    _this.setDefault();
-                else
-                    _this.appSetting = app;
+                //if (app == null)
+                _this.setDefault();
+                //else
+                // this.appSetting = app;
             });
         }
         appService.prototype.setDefault = function () {
@@ -22,10 +22,10 @@ var main;
             selReciter.lang = "Arabic";
 
             var selTranslator = new main.model.Translator();
-            selTranslator.id = "en.pickthall";
+            selTranslator.id = "en.yusufali";
             selTranslator.lang = "English";
-            selTranslator.name = "Pickthall";
-            selTranslator.fname = "Mohammed Marmaduke William Pickthall";
+            selTranslator.name = "Yusuf Ali";
+            selTranslator.fname = "Abdullah Yusuf Ali";
 
             var setting = new main.model.AppSetting();
             setting.selectedReciter = selReciter;

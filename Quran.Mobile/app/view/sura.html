@@ -13,7 +13,7 @@
                 <div style="padding:20px 20px 20px 20px;text-align: justify; font-size: 1.15em; font-weight: normal;">
                 <h4 class="padding text-center" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
                     <div style="line-height: 2.35em;">
-                        <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas">
+                        <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas" >
                           <span ng-if="vm.displayContentType==='arabic'">
                             {{s.arabic}} <span class="positive" style="font-size: .80em;">﴿{{s.ayaID}}﴾</span> 
                           </span>

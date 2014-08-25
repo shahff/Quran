@@ -30,7 +30,7 @@
         }
         suraController.prototype.getSura = function () {
             var _this = this;
-            this.suraService.getSura(this.suraID).then(function (s) {
+            this.suraService.getSura(this.suraID, 'en.yusufali').then(function (s) {
                 s.selectedAyaID = _this.ayaID;
                 _this.$scope.vm.selectedSura = s;
 
