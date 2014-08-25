@@ -12,10 +12,10 @@ module main {
         constructor() {
 
             this.getAppSetting().then(app => {
-                //if (app == null)
+                if (app == null)
                     this.setDefault();
-                //else
-                  // this.appSetting = app;
+                else
+                   this.appSetting = app;
             });
         }
         
@@ -28,11 +28,11 @@ module main {
             selReciter.lang = "Arabic";
 
             var selTranslator = new main.model.Translator();
-            selTranslator.id = "en.yusufali";
+            selTranslator.id = "en.pickthall";
             selTranslator.lang = "English";
-            selTranslator.name = "Yusuf Ali";
-            selTranslator.fname = "Abdullah Yusuf Ali";
-
+            selTranslator.name = "Pickthall";
+            selTranslator.fname = "Mohammed Marmaduke William Pickthall";
+      
             var setting = new main.model.AppSetting();
             setting.selectedReciter = selReciter;
             setting.selectedTranslator = selTranslator;

@@ -47,13 +47,11 @@
             return deferral.promise;
         };
 
-        suraService.prototype.getSura = function (suraID, selectedTranslatorID) {
+        suraService.prototype.getSura = function (suraID) {
             var _this = this;
-            selectedTranslatorID = 'en.yusufali';
-
             var deferral = this.$q.defer();
 
-            var suraDetails = this.getSuraByID(suraID), quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true }), translationText = this.$http.get('content/' + selectedTranslatorID + '.txt', { cache: true });
+            var suraDetails = this.getSuraByID(suraID), quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true }), translationText = this.$http.get('content/en.yusufali.txt', { cache: true });
 
             this.$q.all([suraDetails, quranText, translationText]).then(function (results) {
                 var sura = results[0];
