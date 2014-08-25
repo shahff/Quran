@@ -131,6 +131,8 @@
     <Content Include="fonts\ionicons.svg" />
     <Content Include="fonts\ionicons.ttf" />
     <Content Include="fonts\ionicons.woff" />
+    <Content Include="fonts\UthmanTN.otf" />
+    <Content Include="fonts\UthmanTNB.otf" />
     <Content Include="index.html" />
     <Content Include="scripts\angular-animate.min.js" />
     <Content Include="scripts\angular-resource.min.js" />

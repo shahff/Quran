@@ -2,29 +2,24 @@
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
-            <ion-content class="has-header">
-
+            <div class="bar bar-subheader index-options">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search" ng-model="filterList">
+                </label>
+            </div>
+            <ion-content class="has-header index-content">
                 <div class="list">
-                    
-                      <a class="item my-item"
-                        collection-repeat="s in vm.suras"
-                        collection-item-height="150"
-                        collection-item-width="100 + '%'"
-                        style="width:100%"
-                           href="#/main/sura/{{s.id}}"
-                           >
-                          <div class="row">
-                                <div class="col col-50 text-left"><h4>{{s.id}}</h4></div>
-                                <div class="col col-50 text-right"><h4>{{s.transName}}</h4></div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-center"><h1><strong>{{s.name}}</strong></h1></div>
-                            </div>
-                            <div class="row">
-                                <div class="col col-50 text-left"><h4>{{s.engName}}</h4></div>
-                                <div class="col col-50 text-right"><h4>{{s.type}}</h4></div>
-                            </div>
-                          </a>
+                    <a class="item my-item sura-item"
+                        collection-repeat="s in vm.suras |filter: filterList"
+                        collection-item-height="135"
+                        collection-item-width="'100%'" href="#/main/sura/{{s.id}}">
+                            <h1 class="uthman-bold name">{{s.name}}</h1>
+                            <h3 class="uthman-bold engname">{{s.engName}}</h3>
+                            <h3 class="uthman-bold transname">{{s.transName}}</h3>  
+                            <h4 class="id text-right">{{s.id}}</h4>
+                            <h4 class="type text-right">{{s.type}}</h4>                                
+                    </a>
                 </div>
             </ion-content>
         </ion-view>

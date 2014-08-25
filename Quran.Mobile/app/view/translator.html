@@ -1,17 +1,23 @@
-﻿        <ion-view title="Translation" class="bar-frosted">
+﻿        <ion-view title="Translator: {{vm.selectedTranslator}}" class="bar-frosted">
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
-            <ion-content class="has-header">
-                <div class="item item-divider">
-                    Selected Value: {{ vm.selectedTranslator }}
-              </div>
-                <button ng-click="vm.downloadFile()">Download file</button> <hr /><button ng-click="vm.readFile()">Read</button>
-              <ion-radio collection-repeat="r in vm.translators" collection-item-width="'100%'" collection-item-height="100"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-change="vm.setTranslator(r)"  >
-                
+            <div class="bar bar-subheader index-options">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search" ng-model="filterList">
+                </label>
+            </div>
+
+            <ion-content class="has-header translation-content">
+
+            <!-- <button ng-click="vm.downloadFile()">Download file</button> <hr /><button ng-click="vm.readFile()">Read</button> -->
+              
+              <ion-radio ng-repeat="r in vm.translators |filter: filterList"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-change="vm.setTranslator(r)" >                
                 <h2>{{ r.fname }}</h2>
-                <h4><img ng-src="{{ r.imgUrl }}">   {{ r.lang }}</h4>
-                <button class="pull-right" ng-disabled="false" ng-click="vm.downloadFile()">Download</button>
+                <h4><img ng-src="{{ r.imgUrl }}">{{ r.lang }}</h4>
+                <!-- <button class="pull-right button botton-positive" ng-disabled="false" ng-click="vm.downloadFile()">Download</button> -->
+                <button class="pull-right" ng-click="vm.downloadFile()">Download</button>
               </ion-radio>
                 
             </ion-content>
