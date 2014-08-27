@@ -11,7 +11,7 @@
                     <div>
 
                         <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas">
-                          <span ng-if="vm.displayContentType==='arabic'">
+                            <span ng-if="vm.displayContentType==='arabic'">
                             {{s.arabic}} <span class="positive ayaid">﴿{{s.ayaID}}﴾</span> 
                           </span>
                           <span ng-if="vm.displayContentType==='translation'"> 

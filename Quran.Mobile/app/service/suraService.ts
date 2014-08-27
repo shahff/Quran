@@ -49,14 +49,15 @@
             return deferral.promise;
        }
 
-        getSura(suraID: number): ng.IPromise<main.model.Sura> {
+        getSura(suraID: number, selectedTranslatorID: string): ng.IPromise<main.model.Sura> {
 
-            
+            selectedTranslatorID = 'en.yusufali';
+
             var deferral = this.$q.defer<main.model.Sura>();
 
             var suraDetails = this.getSuraByID(suraID),
                 quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true }),
-                translationText = this.$http.get('content/en.yusufali.txt', { cache: true });
+                translationText = this.$http.get('content/'+ selectedTranslatorID +'.txt', { cache: true });
 
             this.$q.all([suraDetails, quranText, translationText]).then(results => {
                 

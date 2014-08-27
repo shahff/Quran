@@ -32,7 +32,7 @@
         }
         
         getSura(): void {
-            this.suraService.getSura(this.suraID).then(s=> {
+            this.suraService.getSura(this.suraID, 'en.yusufali').then(s=> {
                 s.selectedAyaID = this.ayaID;
                 this.$scope.vm.selectedSura = s;
 
