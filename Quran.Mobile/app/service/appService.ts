@@ -12,10 +12,10 @@ module main {
         constructor() {
 
             this.getAppSetting().then(app => {
-                //if (app == null)
+                if (app == null)
                     this.setDefault();
-                //else
-                  // this.appSetting = app;
+                else
+                   this.appSetting = app;
             });
         }
         

@@ -28,13 +28,14 @@
             this.hasBismillah = (this.suraID === 1 || this.suraID === 9)?false:true;
             
             if (this.suraID > 0)
-              this.getSura();
+                this.getSura();
+
         }
         
         getSura(): void {
             this.suraService.getSura(this.suraID, 'en.yusufali').then(s=> {
                 s.selectedAyaID = this.ayaID;
-                this.$scope.vm.selectedSura = s;
+                this.selectedSura = s;
 
                 //slide to position
                 this.slideTo(this.ayaID);

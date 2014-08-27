@@ -32,7 +32,7 @@
             var _this = this;
             this.suraService.getSura(this.suraID, 'en.yusufali').then(function (s) {
                 s.selectedAyaID = _this.ayaID;
-                _this.$scope.vm.selectedSura = s;
+                _this.selectedSura = s;
 
                 //slide to position
                 _this.slideTo(_this.ayaID);

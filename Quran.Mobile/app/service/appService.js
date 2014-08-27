@@ -8,10 +8,10 @@ var main;
         function appService() {
             var _this = this;
             this.getAppSetting().then(function (app) {
-                //if (app == null)
-                _this.setDefault();
-                //else
-                // this.appSetting = app;
+                if (app == null)
+                    _this.setDefault();
+                else
+                    _this.appSetting = app;
             });
         }
         appService.prototype.setDefault = function () {
