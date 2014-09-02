@@ -113,6 +113,7 @@
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\view\bookmark.html" />
     <Content Include="app\view\main.html" />
     <Content Include="app\view\reciter.html" />
     <Content Include="app\view\sura.html" />
@@ -143,6 +144,7 @@
     <Content Include="scripts\localforage.min.js" />
     <Content Include="scripts\underscore-min.js" />
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\controller\bookmarkController.ts" />
     <TypeScriptCompile Include="app\controller\mainController.ts" />
     <TypeScriptCompile Include="app\controller\reciterController.ts" />
     <TypeScriptCompile Include="app\controller\suraController.ts" />
@@ -150,6 +152,7 @@
     <TypeScriptCompile Include="app\controller\translatorController.ts" />
     <TypeScriptCompile Include="app\model\model.ts" />
     <TypeScriptCompile Include="app\service\appService.ts" />
+    <TypeScriptCompile Include="app\service\bookmarkService.ts" />
     <TypeScriptCompile Include="app\service\reciterService.ts" />
     <TypeScriptCompile Include="app\service\suraService.ts" />
     <TypeScriptCompile Include="app\service\translatorService.ts" />

@@ -9,9 +9,11 @@
         hasBismillah: boolean;
         showTranslation: boolean;
         public displayContentType: string = 'arabic';
+        public selectedBookmarks: string[];
 
-        public static $inject = ['$scope', '$stateParams', '$location','$ionicScrollDelegate', 'appService','suraService'];
-        constructor(private $scope, private $stateParams, private $location, private $ionicScrollDelegate, private appService: appService,private suraService: suraService) {
+
+        public static $inject = ['$scope', '$stateParams', '$location', '$ionicScrollDelegate', 'appService', 'suraService', 'bookmarkService'];
+        constructor(private $scope, private $stateParams, private $location, private $ionicScrollDelegate, private appService: appService, private suraService: suraService, private bookmarkService: bookmarkService) {
     
             $scope.vm = this;
             
@@ -30,6 +32,8 @@
             if (this.suraID > 0)
                 this.getSura();
 
+            
+
         }
         
         getSura(): void {
@@ -39,7 +43,9 @@
 
                 //slide to position
                 this.slideTo(this.ayaID);
-                
+            
+                //todo:set bookmarks
+                //this.getBookmarkIDs();    
             });
         }
 
@@ -67,6 +73,21 @@
             }
             this.slideTo(ayaID);
         }
+
+
+        bookmark(): void {
+            this.bookmarkService.storeBookmark(this.selectedSura);
+        }
+
+        getBookmarkIDs(): void {
+            var selSuraID = this.selectedSura.id;
+            this.selectedBookmarks = [];
+            this.bookmarkService.getBookmarks().then(bms=> {
+                this.selectedBookmarks = _.pluck(_.filter(bms, b=> {return (b.selectedSura.id === selSuraID) }), "id");
+                var dd = 1;
+            });
+        }
+
 
         displayContent(displayContent: string): void {
             this.displayContentType = displayContent;

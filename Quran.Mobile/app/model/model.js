@@ -39,9 +39,18 @@
         })();
         model.AppSetting = AppSetting;
 
+        var Bookmark = (function () {
+            function Bookmark() {
+            }
+            return Bookmark;
+        })();
+        model.Bookmark = Bookmark;
+
         var CONSTANT = (function () {
             function CONSTANT() {
             }
+            CONSTANT.appSettingDBKey = '_appSetting';
+            CONSTANT.bookmarkDBKey = '_bookmarks';
             CONSTANT.localPersistentPath = 'cdvfile://localhost/persistent/Quran.Mobile/';
             CONSTANT.translationURL = 'http://tanzil.net/trans/';
             CONSTANT.localTranslationPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';

@@ -3,13 +3,14 @@
     "use strict";
 
     var suraController = (function () {
-        function suraController($scope, $stateParams, $location, $ionicScrollDelegate, appService, suraService) {
+        function suraController($scope, $stateParams, $location, $ionicScrollDelegate, appService, suraService, bookmarkService) {
             this.$scope = $scope;
             this.$stateParams = $stateParams;
             this.$location = $location;
             this.$ionicScrollDelegate = $ionicScrollDelegate;
             this.appService = appService;
             this.suraService = suraService;
+            this.bookmarkService = bookmarkService;
             this.displayContentType = 'arabic';
             $scope.vm = this;
 
@@ -36,6 +37,8 @@
 
                 //slide to position
                 _this.slideTo(_this.ayaID);
+                //todo:set bookmarks
+                //this.getBookmarkIDs();
             });
         };
 
@@ -59,6 +62,22 @@
             this.slideTo(ayaID);
         };
 
+        suraController.prototype.bookmark = function () {
+            this.bookmarkService.storeBookmark(this.selectedSura);
+        };
+
+        suraController.prototype.getBookmarkIDs = function () {
+            var _this = this;
+            var selSuraID = this.selectedSura.id;
+            this.selectedBookmarks = [];
+            this.bookmarkService.getBookmarks().then(function (bms) {
+                _this.selectedBookmarks = _.pluck(_.filter(bms, function (b) {
+                    return (b.selectedSura.id === selSuraID);
+                }), "id");
+                var dd = 1;
+            });
+        };
+
         suraController.prototype.displayContent = function (displayContent) {
             this.displayContentType = displayContent;
             //this.$scope.$apply();
@@ -71,7 +90,7 @@
                 _this.$scope.vm.suras = s;
             });
         };
-        suraController.$inject = ['$scope', '$stateParams', '$location', '$ionicScrollDelegate', 'appService', 'suraService'];
+        suraController.$inject = ['$scope', '$stateParams', '$location', '$ionicScrollDelegate', 'appService', 'suraService', 'bookmarkService'];
         return suraController;
     })();
     main.suraController = suraController;

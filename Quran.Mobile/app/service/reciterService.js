@@ -1,5 +1,4 @@
 ﻿/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
-//declare var localforage: lf.ILocalForage<main.model.Reciter>;
 var main;
 (function (main) {
     "use strict";

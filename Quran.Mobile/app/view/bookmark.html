@@ -1,0 +1,20 @@
+﻿        <ion-view title="Bookmarks">
+            <ion-nav-buttons side="left">
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+            </ion-nav-buttons>
+            <ion-content class="has-header">
+                <div class="list">
+                    <div class="item"
+                        ng-repeat="b in vm.bookmarks"
+                        ng-href="#/main/sura/{{b.id}}">
+                            {{b.selectedSura.id}}| {{b.selectedSura.engName}} | {{b.createdDate}}  
+                            <h1>{{b.selectedSura.name}} | {{b.id}}</h1>
+                        <div>{{b.selectedSura.ayas[0].arabic}}</div>
+                        <div style="text-overflow: ellipsis;">{{b.selectedSura.ayas[0].translation}}</div>
+                        <button ng-click="vm.removeBookmark(b)">Remove</button>
+                        <a style="button" ng-href="#/main/sura/{{b.id}}">Navigate</a>                                    
+                    </div>
+
+                </div>
+            </ion-content>
+        </ion-view>

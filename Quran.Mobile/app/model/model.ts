@@ -48,14 +48,22 @@
         selectedSuraText: string; //sample 03:33
     }
 
+    export class Bookmark {
+
+        id: string; //sample 03:33
+        selectedSura: Sura; //bookmark Aya Stored
+        createdDate: string;
+    }
     
     export class CONSTANT {
 
+        static appSettingDBKey: string = '_appSetting';
+        static bookmarkDBKey: string = '_bookmarks';
         static localPersistentPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/';
         static translationURL: string = 'http://tanzil.net/trans/';
         static localTranslationPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
         static localAudioPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
-
+        
     }
 
     

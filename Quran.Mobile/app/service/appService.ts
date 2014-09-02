@@ -44,12 +44,12 @@ module main {
 
         storeAppSetting(): lf.IPromise<main.model.AppSetting> {
 
-            return localforage.setItem("_appSetting", this.appSetting);
+            return localforage.setItem(model.CONSTANT.appSettingDBKey, this.appSetting);
         }
 
         getAppSetting(): lf.IPromise<main.model.AppSetting> {
 
-           return localforage.getItem("_appSetting");
+            return localforage.getItem(model.CONSTANT.appSettingDBKey);
         }
 
     }

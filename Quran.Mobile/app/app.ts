@@ -9,10 +9,13 @@ angular.module("main", ['ionic'])
     .controller("suraIndexController", main.suraIndexController)
     .controller("reciterController", main.reciterController)
     .controller("translatorController", main.translatorController)
+    .controller("bookmarkController", main.bookmarkController)
+
     .service("appService", main.appService)
     .service("suraService", main.suraService)
     .service("reciterService", main.reciterService)
     .service("translatorService", main.translatorService)
+    .service("bookmarkService", main.bookmarkService)
 
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -63,7 +66,15 @@ angular.module("main", ['ionic'])
                     }
                 }
             })
-            
+            .state('main.bookmark', {
+                url: "/bookmark",
+                views: {
+                    'menuContent': {
+                        templateUrl: "app/view/bookmark.html",
+                        controller: 'bookmarkController'
+                    }
+                }
+            })
 
         $urlRouterProvider.otherwise("/main/sura/");
     });

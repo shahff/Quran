@@ -36,11 +36,11 @@ var main;
         };
 
         appService.prototype.storeAppSetting = function () {
-            return localforage.setItem("_appSetting", this.appSetting);
+            return localforage.setItem(main.model.CONSTANT.appSettingDBKey, this.appSetting);
         };
 
         appService.prototype.getAppSetting = function () {
-            return localforage.getItem("_appSetting");
+            return localforage.getItem(main.model.CONSTANT.appSettingDBKey);
         };
         appService.$inject = [];
         return appService;
