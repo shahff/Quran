@@ -6,11 +6,11 @@
         public selectedSura: main.model.Sura;
         public suraID: number; //sample - 2:85
         public ayaID: number;
-        hasBismillah: boolean;
-        showTranslation: boolean;
+        public hasBismillah: boolean;
+        public showTranslation: boolean;
         public displayContentType: string = 'arabic';
-        public selectedBookmarks: string[];
-
+        public selectedBookmarks: string[] = [];
+        public isBookmarked : boolean = false;
 
         public static $inject = ['$scope', '$stateParams', '$location', '$ionicScrollDelegate', 'appService', 'suraService', 'bookmarkService'];
         constructor(private $scope, private $stateParams, private $location, private $ionicScrollDelegate, private appService: appService, private suraService: suraService, private bookmarkService: bookmarkService) {
@@ -32,6 +32,7 @@
             if (this.suraID > 0)
                 this.getSura();
 
+            this.selectedBookmarks = new Array<string>();
             
 
         }
@@ -41,11 +42,12 @@
                 s.selectedAyaID = this.ayaID;
                 this.selectedSura = s;
 
-                //slide to position
+                //set bookmarks
+                this.getBookmarkIDs();
+
+                //slide to position & check bookmark
                 this.slideTo(this.ayaID);
-            
-                //todo:set bookmarks
-                //this.getBookmarkIDs();    
+                
             });
         }
 
@@ -55,6 +57,10 @@
                 this.$location.hash(ayaID);
                 this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
             }
+
+            //set bookmark
+            var id = this.selectedSura.id + ":" + this.selectedSura.selectedAyaID; 
+            this.isBookmarked  = _.indexOf(this.selectedBookmarks, id ) > -1;
         }
 
 
@@ -81,13 +87,10 @@
 
         getBookmarkIDs(): void {
             var selSuraID = this.selectedSura.id;
-            this.selectedBookmarks = [];
             this.bookmarkService.getBookmarks().then(bms=> {
-                this.selectedBookmarks = _.pluck(_.filter(bms, b=> {return (b.selectedSura.id === selSuraID) }), "id");
-                var dd = 1;
+                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
             });
         }
-
 
         displayContent(displayContent: string): void {
             this.displayContentType = displayContent;

@@ -12,6 +12,8 @@
             this.suraService = suraService;
             this.bookmarkService = bookmarkService;
             this.displayContentType = 'arabic';
+            this.selectedBookmarks = [];
+            this.isBookmarked = false;
             $scope.vm = this;
 
             //sample id = 2:85
@@ -28,6 +30,8 @@
 
             if (this.suraID > 0)
                 this.getSura();
+
+            this.selectedBookmarks = new Array();
         }
         suraController.prototype.getSura = function () {
             var _this = this;
@@ -35,10 +39,11 @@
                 s.selectedAyaID = _this.ayaID;
                 _this.selectedSura = s;
 
-                //slide to position
+                //set bookmarks
+                _this.getBookmarkIDs();
+
+                //slide to position & check bookmark
                 _this.slideTo(_this.ayaID);
-                //todo:set bookmarks
-                //this.getBookmarkIDs();
             });
         };
 
@@ -48,6 +53,10 @@
                 this.$location.hash(ayaID);
                 this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
             }
+
+            //set bookmark
+            var id = this.selectedSura.id + ":" + this.selectedSura.selectedAyaID;
+            this.isBookmarked = _.indexOf(this.selectedBookmarks, id) > -1;
         };
 
         suraController.prototype.play = function () {
@@ -69,12 +78,10 @@
         suraController.prototype.getBookmarkIDs = function () {
             var _this = this;
             var selSuraID = this.selectedSura.id;
-            this.selectedBookmarks = [];
             this.bookmarkService.getBookmarks().then(function (bms) {
                 _this.selectedBookmarks = _.pluck(_.filter(bms, function (b) {
-                    return (b.selectedSura.id === selSuraID);
+                    return b.selectedSura.id === selSuraID;
                 }), "id");
-                var dd = 1;
             });
         };
 
