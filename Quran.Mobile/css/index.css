@@ -173,3 +173,20 @@
   margin-top: 3.2em;
 }
 
+.translation-content .country{
+  margin: .5em 0;
+}
+
+.translation-content .download {
+  display: block;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid #6d9850;
+  color: #6d9850;
+  font-size: 1.1em;
+  padding: .1em 0.4em;
+}
+
+.translation-content .download:before {
+  margin-right: .5em;
+}
