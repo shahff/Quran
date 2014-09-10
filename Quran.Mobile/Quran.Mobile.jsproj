@@ -113,6 +113,10 @@
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controller\bookmarkController.js" />
+    <Content Include="app\controller\bookmarkController.js.map" />
+    <Content Include="app\service\bookmarkService.js" />
+    <Content Include="app\service\bookmarkService.js.map" />
     <Content Include="app\view\bookmark.html" />
     <Content Include="app\view\main.html" />
     <Content Include="app\view\reciter.html" />

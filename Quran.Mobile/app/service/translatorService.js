@@ -1,4 +1,5 @@
-﻿/// <reference path="../../scripts/typings/cordova/plugins/filetransfer.d.ts" />
+﻿/// <reference path="../../scripts/typings/cordova/plugins/filesystem.d.ts" />
+/// <reference path="../../scripts/typings/cordova/plugins/filetransfer.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 var main;
 (function (main) {
@@ -33,6 +34,10 @@ var main;
             return deferral.promise;
         };
 
+        translatorService.prototype.getDownloadFileNames = function () {
+            //todo
+        };
+
         translatorService.prototype.readFile = function () {
             var filePath = main.model.CONSTANT.localTranslationPath + "en.yusufali.txt";
             this.$http.get(filePath, { cache: true }).then(function (s) {
@@ -40,6 +45,9 @@ var main;
             }).catch(function (e) {
                 return alert(e);
             });
+        };
+
+        translatorService.prototype.getTranslationDownloaded = function () {
         };
 
         translatorService.prototype.downloadFile = function (translator) {
