@@ -1,7 +1,7 @@
 ﻿        <ion-view title="{{vm.selectedSura.name}}">
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-                    <button class="button button-icon" ng-click="vm.bookmark()" ng-show="!vm.isBookmarked"  >Bookmark</button>
+                    <button class="button button-icon" ng-click="vm.bookmark()" ng-disabled="vm.isBookmarked"  >Bookmark</button>
             
             </ion-nav-buttons>
                 

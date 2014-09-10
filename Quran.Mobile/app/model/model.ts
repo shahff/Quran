@@ -37,6 +37,7 @@
         name: string;
         fname: string;
         url: string;
+        isDownloaded: boolean;
     }
 
     //stored in DB
