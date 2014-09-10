@@ -1,4 +1,5 @@
-﻿/// <reference path="../../scripts/typings/cordova/plugins/filetransfer.d.ts" />
+﻿/// <reference path="../../scripts/typings/cordova/plugins/filesystem.d.ts" />
+/// <reference path="../../scripts/typings/cordova/plugins/filetransfer.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 
 module main {
@@ -35,12 +36,21 @@ module main {
 
         }
 
+        getDownloadFileNames(): void {
+
+            //todo
+        }
+
         readFile(): void {
 
             var filePath = main.model.CONSTANT.localTranslationPath + "en.yusufali.txt";
             this.$http.get(filePath, { cache: true }).then(s => {
                 alert(s.data);
             }).catch(e=> alert(e))
+
+        }
+
+        getTranslationDownloaded(): void {
 
         }
 

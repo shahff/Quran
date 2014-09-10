@@ -22,13 +22,14 @@ var main;
         translatorController.prototype.getTranslators = function () {
             var _this = this;
             this.translatorService.getTranslatorMetaData().then(function (s) {
-                _this.$scope.vm.translators = s;
+                _this.translators = s;
                 _this.$scope.main.hideBusy();
+                //this.translators[0].isDownloaded = true;
             });
         };
 
         translatorController.prototype.setTranslator = function (selectedItem) {
-            this.$scope.vm.selectedTranslator = selectedItem.name;
+            this.selectedTranslator = selectedItem.name;
             this.appService.appSetting.selectedTranslator = selectedItem;
             this.appService.storeAppSetting();
         };
