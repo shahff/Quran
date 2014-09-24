@@ -12,6 +12,10 @@
   src: url("../fonts/UthmanTNB.otf");
 }
 
+.rtl {
+  direction: rtl;
+}
+
 .uthman {
   font-family: 'Uthman';
 }
@@ -77,8 +81,52 @@
 }
 
 /*
+  Left Menu
+*/
+
+a.item-content span:before {
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+.menu-left {
+  background-color: #2c2c2c;
+}
+
+.menu-left .item {
+  background-color: #2c2c2c;
+  border: 0;
+  border-top: 1px solid #424242;
+  border-bottom: 1px solid #424242;
+}
+
+.menu-left .item a {
+  background-color: #2c2c2c;  
+  color: #fff;
+}
+
+.menu-left .item a:hover {
+  background-color: #eee;
+  color: #2c2c2c;  
+}
+
+.menu-left .item a span:before {
+  /*color: #fff;*/
+}
+
+
+
+/*
   Sura Page
 */
+
+.sub-header {
+  height: 80px;
+}
+
+.ion-information:before {
+  font-size: 25px !important;
+}
 
 .sura-content {
   padding: 1.25em;
@@ -111,7 +159,8 @@
   height: auto;
 }
 
-.index-content {
+.index-content,
+.bookmark-content {
   margin-top: 3em;
   padding: .6em;
   background-color: #e5e5e5;
@@ -123,6 +172,10 @@
   border-left: 4px solid #6d9850;
   border-radius: .1em;
   border-bottom: 2px solid #CCC;
+}
+
+.bookmark-content .sura-item {
+  margin: 8px auto 0;
 }
 
 .sura-item .name {
@@ -173,3 +226,48 @@
   margin-top: 3.2em;
 }
 
+.translation-content .country{
+  margin: .5em 0;
+}
+
+.mybutton {
+  display: block;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid #6d9850;
+  color: #6d9850;
+  font-size: 1.1em;
+  padding: .1em 0.4em;
+  text-decoration: none;
+}
+
+.mybutton:before {
+  margin-right: .5em;
+}
+
+.bookmark-content .mybutton.remove {
+  float: right;
+  margin-top: 12px;
+  background-color: #ef4e3a;
+  color: #fff;
+  border-color: #cc2311;
+}
+
+.bookmark-content .mybutton.navigate {
+  float: left;
+  margin-top: 12px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+
+  border-color: #1aacc3;
+  background-color: #43cee6;
+  color: #fff;
+}
+
+.bookmark-content .preview {
+  margin: .5em 0;
+}
+
+.bookmark-content .preview p {
+  margin: .5em auto;
+}
