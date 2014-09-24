@@ -80,6 +80,14 @@
   Sura Page
 */
 
+.sub-header {
+  height: 80px;
+}
+
+.ion-information:before {
+  font-size: 25px !important;
+}
+
 .sura-content {
   padding: 1.25em;
   text-align: justify;

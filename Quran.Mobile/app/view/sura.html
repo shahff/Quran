@@ -1,12 +1,26 @@
 ﻿        <ion-view title="{{vm.selectedSura.name}}">
             <ion-nav-buttons side="left">
-                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>             
+                <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
-            <div class="bar bar-subheader">
+            <ion-nav-buttons side="right">
+                <button class="button button-icon icon ion-information" ng-click="showSubHeader = !showSubHeader"></button>
+            </ion-nav-buttons>
+            <div class="bar bar-subheader sub-header" ng-show="showSubHeader">
                 <div class="button-bar">
-                    {{vm.selectedSura.engName}} | {{vm.selectedSura.transName}}   
-                    {{vm.selectedSura.selectedAyaID}} of {{vm.selectedSura.numberOfAyas}}
-                    {{vm.appService.appSetting.selectedTranslator.name}} | {{vm.appService.appSetting.selectedReciter.name}}
+                    <div class="button-bar">
+                        <span class="button">
+                            <div>{{vm.selectedSura.selectedAyaID}} of</div>
+                            <div>{{vm.selectedSura.numberOfAyas}}</div>
+                        </span>
+                        <span class="button">
+                            <div>{{vm.selectedSura.transName}}</div>
+                            <div>{{vm.selectedSura.engName}}</div>                        
+                        </span>
+                        <span class="button">
+                            <div>{{vm.appService.appSetting.selectedReciter.name}}</div>
+                            <div>{{vm.appService.appSetting.selectedTranslator.name}}</div>
+                        </span>
+                    </div>                                    
                 </div>
             </div>    
             <ion-content class="has-header " delegate-handle="mainScroll" ng-class="{true: 'nightly'}[isNightly]">
