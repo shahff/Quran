@@ -13,18 +13,17 @@
 
             <!-- <button ng-click="vm.downloadFile()">Download file</button> <hr /><button ng-click="vm.readFile()">Read</button> -->
               
-<<<<<<< HEAD
+
               <ion-radio ng-repeat="r in vm.translators |filter: filterList"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-change="vm.setTranslator(r)" >
                 <h2>{{ r.fname }}</h2>
                 <h3 class="country"><img ng-src="{{ r.imgUrl }}"> {{ r.lang }}</h3>
                 <button class="pull-right icon-left ion-ios7-download-outline download" ng-disabled="false" ng-click="vm.downloadFile()">Download</button>
-=======
+              </ion-radio>
               <ion-radio ng-repeat="r in vm.translators |filter: filterList" ng-disabled="!r.isDownloaded"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-change="vm.setTranslator(r)" >                
                 <h2>{{ r.fname }}</h2>
                 <h4><img ng-src="{{ r.imgUrl }}">{{ r.lang }}</h4>
                 <!-- <button class="pull-right button botton-positive" ng-disabled="false" ng-click="vm.downloadFile()">Download</button> -->
                 <button class="pull-right" ng-click="vm.downloadFile()" ng-hide="r.isDownloaded">Download</button>
->>>>>>> origin/master
               </ion-radio>
                 
             </ion-content>
