@@ -77,6 +77,42 @@
 }
 
 /*
+  Left Menu
+*/
+
+a.item-content span:before {
+  font-size: 30px;
+  padding-right: 10px;
+}
+
+.menu-left {
+  background-color: #2c2c2c;
+}
+
+.menu-left .item {
+  background-color: #2c2c2c;
+  border: 0;
+  border-top: 1px solid #424242;
+  border-bottom: 1px solid #424242;
+}
+
+.menu-left .item a {
+  background-color: #2c2c2c;  
+  color: #fff;
+}
+
+.menu-left .item a:hover {
+  background-color: #eee;
+  color: #2c2c2c;  
+}
+
+.menu-left .item a span:before {
+  /*color: #fff;*/
+}
+
+
+
+/*
   Sura Page
 */
 

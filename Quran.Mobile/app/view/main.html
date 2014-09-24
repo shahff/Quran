@@ -5,26 +5,24 @@
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
-  <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable" >
-      <h1 class="title">Left</h1>
-    </header>
-    <ion-content class="has-header">
+  <ion-side-menu side="left">    
+    <ion-content>
       <ion-list>
         <ion-item nav-clear menu-close href="#/main/sura/">
-          Home
+          <span class="icon-left ion-home">Home</span>
         </ion-item>
-        <ion-item nav-clear menu-close href="#/main/index">
-          Chapters (Suras)
+        <ion-item nav-clear menu-close href="#/main/index">        
+          <!-- <span class="icon-left ion-android-book">Chapters (Suras)</span> -->
+          <span class="icon-left ion-ios7-paper">Chapters (Suras)</span>
         </ion-item>
-          <ion-item nav-clear menu-close href="#/main/reciter">
-          Recitation
+        <ion-item nav-clear menu-close href="#/main/reciter">
+          <span class="icon-left ion-ios7-mic">Recitation</span>                              
         </ion-item>
           <ion-item nav-clear menu-close href="#/main/translator">
-          Translation
+            <span class="icon-left ion-ios7-world">Translation</span>          
         </ion-item>
         <ion-item nav-clear menu-close href="#/main/bookmark">
-          Bookmark
+          <span class="icon-left ion-star">Bookmark</span>          
         </ion-item>
       </ion-list>
     </ion-content>
