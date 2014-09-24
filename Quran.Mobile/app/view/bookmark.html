@@ -2,17 +2,29 @@
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
-            <ion-content class="has-header">
+            <div class="bar bar-subheader index-options">
+                <label class="item item-input">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="Search" ng-model="filterList">
+                </label>
+            </div>
+            <ion-content class="has-header bookmark-content">
                 <div class="list">
-                    <div class="item"
-                        ng-repeat="b in vm.bookmarks"
-                        ng-href="#/main/sura/{{b.id}}">
-                            {{b.selectedSura.id}}| {{b.selectedSura.engName}} | {{b.createdDate}}  
-                            <h1>{{b.selectedSura.name}} | {{b.id}}</h1>
-                        <div>{{b.selectedSura.ayas[0].arabic}}</div>
-                        <div style="text-overflow: ellipsis;">{{b.selectedSura.ayas[0].translation}}</div>
-                        <button ng-click="vm.removeBookmark(b)">Remove</button>
-                        <a style="button" ng-href="#/main/sura/{{b.id}}">Navigate</a>                                    
+                    <div class="item my-item sura-item"
+                        ng-repeat="b in vm.bookmarks |filter: filterList"
+                        ng-href="#/main/sura/{{b.id}}">                                                
+                                                
+                        <h1 class="uthman-bold name">{{b.selectedSura.name}}</h1>
+                        <h3 class="uthman-bold engname">{{b.selectedSura.engName}} ({{b.id}})</h3>
+                        <h4 class="id text-right">{{b.createdDate}}</h4>
+                        <div class="preview">
+                            <p class="rtl">{{b.selectedSura.ayas[0].arabic}}</p>
+                            <p>{{b.selectedSura.ayas[0].translation}}</p>
+                        </div>
+                        <div class="clearfix buttons">
+                            <a class="icon-left ion-ios7-redo mybutton navigate" ng-href="#/main/sura/{{b.id}}">Navigate</a>                        
+                            <button class="icon-left ion-android-trash mybutton remove" ng-click="vm.removeBookmark(b)">Remove</button>                            
+                        </div>
                     </div>
 
                 </div>

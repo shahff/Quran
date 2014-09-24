@@ -17,7 +17,7 @@
               <ion-radio ng-repeat="r in vm.translators |filter: filterList"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-change="vm.setTranslator(r)" >
                 <h2>{{ r.fname }}</h2>
                 <h3 class="country"><img ng-src="{{ r.imgUrl }}"> {{ r.lang }}</h3>
-                <button class="pull-right icon-left ion-ios7-download-outline download" ng-disabled="false" ng-click="vm.downloadFile()">Download</button>
+                <button class="pull-right icon-left ion-ios7-download-outline mybutton" ng-disabled="false" ng-click="vm.downloadFile()">Download</button>
               </ion-radio>
               <ion-radio ng-repeat="r in vm.translators |filter: filterList" ng-disabled="!r.isDownloaded"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-change="vm.setTranslator(r)" >                
                 <h2>{{ r.fname }}</h2>

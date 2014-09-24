@@ -12,6 +12,10 @@
   src: url("../fonts/UthmanTNB.otf");
 }
 
+.rtl {
+  direction: rtl;
+}
+
 .uthman {
   font-family: 'Uthman';
 }
@@ -155,7 +159,8 @@ a.item-content span:before {
   height: auto;
 }
 
-.index-content {
+.index-content,
+.bookmark-content {
   margin-top: 3em;
   padding: .6em;
   background-color: #e5e5e5;
@@ -167,6 +172,10 @@ a.item-content span:before {
   border-left: 4px solid #6d9850;
   border-radius: .1em;
   border-bottom: 2px solid #CCC;
+}
+
+.bookmark-content .sura-item {
+  margin: 8px auto 0;
 }
 
 .sura-item .name {
@@ -221,7 +230,7 @@ a.item-content span:before {
   margin: .5em 0;
 }
 
-.translation-content .download {
+.mybutton {
   display: block;
   appearance: none;
   background-color: transparent;
@@ -229,8 +238,36 @@ a.item-content span:before {
   color: #6d9850;
   font-size: 1.1em;
   padding: .1em 0.4em;
+  text-decoration: none;
 }
 
-.translation-content .download:before {
+.mybutton:before {
   margin-right: .5em;
+}
+
+.bookmark-content .mybutton.remove {
+  float: right;
+  margin-top: 12px;
+  background-color: #ef4e3a;
+  color: #fff;
+  border-color: #cc2311;
+}
+
+.bookmark-content .mybutton.navigate {
+  float: left;
+  margin-top: 12px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+
+  border-color: #1aacc3;
+  background-color: #43cee6;
+  color: #fff;
+}
+
+.bookmark-content .preview {
+  margin: .5em 0;
+}
+
+.bookmark-content .preview p {
+  margin: .5em auto;
 }
