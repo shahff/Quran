@@ -32,6 +32,8 @@
                 this.getSura();
 
             this.selectedBookmarks = new Array();
+
+            this.displayContentType = this.appService.appSetting.selectedDisplayContentType;
         }
         suraController.prototype.getSura = function () {
             var _this = this;
@@ -73,6 +75,7 @@
 
         suraController.prototype.bookmark = function () {
             this.bookmarkService.storeBookmark(this.selectedSura);
+            this.getBookmarkIDs();
         };
 
         suraController.prototype.getBookmarkIDs = function () {
@@ -87,6 +90,8 @@
 
         suraController.prototype.displayContent = function (displayContent) {
             this.displayContentType = displayContent;
+            this.appService.appSetting.selectedDisplayContentType = displayContent;
+            this.appService.storeAppSetting();
             //this.$scope.$apply();
         };
 

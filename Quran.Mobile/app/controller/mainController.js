@@ -13,16 +13,6 @@ var main;
 
             $scope.main = this;
         }
-        mainController.prototype.showBusy = function () {
-            // Show the loading overlay and text
-            this.$ionicLoading.show({
-                template: 'Loading...'
-            });
-        };
-
-        mainController.prototype.hideBusy = function () {
-            this.$ionicLoading.hide();
-        };
         mainController.$inject = ['$scope', '$timeout', '$ionicLoading', 'appService'];
         return mainController;
     })();

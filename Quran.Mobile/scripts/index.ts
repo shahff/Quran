@@ -6,6 +6,9 @@ module Quran.Mobile {
     "use strict";
 
     export module Application {
+
+        export var fileSystem: FileSystem;
+
         export function initialize() {
             document.addEventListener('deviceready', onDeviceReady, false);
         }
@@ -16,7 +19,11 @@ module Quran.Mobile {
             document.addEventListener('resume', onResume, false);
 
             // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
+            
         }
+
+
+        
 
         function onPause() {
             // TODO: This application has been suspended. Save application state here.

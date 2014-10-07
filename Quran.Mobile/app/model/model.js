@@ -51,10 +51,12 @@
             }
             CONSTANT.appSettingDBKey = '_appSetting';
             CONSTANT.bookmarkDBKey = '_bookmarks';
+            CONSTANT.downloadTranslationDBKey = '_translationFileName';
             CONSTANT.localPersistentPath = 'cdvfile://localhost/persistent/Quran.Mobile/';
             CONSTANT.translationURL = 'http://tanzil.net/trans/';
-            CONSTANT.localTranslationPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
-            CONSTANT.localAudioPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
+            CONSTANT.localTranslationFullPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
+            CONSTANT.localAudioFullPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
+            CONSTANT.localTranslationPath = 'Quran.Mobile/downloads/translation';
             return CONSTANT;
         })();
         model.CONSTANT = CONSTANT;

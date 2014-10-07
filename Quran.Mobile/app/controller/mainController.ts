@@ -14,18 +14,18 @@ module main {
 
         }
 
-        showBusy(): void {
+        //showBusy(): void {
 
-            // Show the loading overlay and text
-            this.$ionicLoading.show({
-                    template: 'Loading...'
-                });
-        }
+        //    // Show the loading overlay and text
+        //    this.$ionicLoading.show({
+        //            template: 'Loading...'
+        //        });
+        //}
 
 
-        hideBusy(): void {
-            this.$ionicLoading.hide();
-        }
+        //hideBusy(): void {
+        //    this.$ionicLoading.hide();
+        //}
 
     }
 }

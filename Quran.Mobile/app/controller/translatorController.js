@@ -4,27 +4,26 @@ var main;
     "use strict";
 
     var translatorController = (function () {
-        function translatorController($scope, translatorService, appService) {
+        function translatorController($scope, $q, $ionicLoading, translatorService, appService) {
             this.$scope = $scope;
+            this.$q = $q;
+            this.$ionicLoading = $ionicLoading;
             this.translatorService = translatorService;
             this.appService = appService;
-            this.isDownloaded = false;
-            var that = this;
-
             $scope.vm = this;
-            $scope.main.showBusy();
+            this.$ionicLoading.show({ template: 'Loading...' });
 
             this.getTranslators();
 
-            //$scope.vm.isDownloaded = this.isDownloaded = true;
             this.selectedTranslator = appService.appSetting.selectedTranslator.name;
         }
         translatorController.prototype.getTranslators = function () {
             var _this = this;
             this.translatorService.getTranslatorMetaData().then(function (s) {
                 _this.translators = s;
-                _this.$scope.main.hideBusy();
-                //this.translators[0].isDownloaded = true;
+                _this.getFileNames();
+
+                _this.$ionicLoading.hide();
             });
         };
 
@@ -38,10 +37,21 @@ var main;
             this.translatorService.downloadFile('sds');
         };
 
+        translatorController.prototype.getFileNames = function () {
+            var _this = this;
+            this.appService.getDownloadFileNames().then(function (fns) {
+                _.each(fns, function (f) {
+                    var transFound = _.findWhere(_this.translators, { id: f });
+                    transFound.isDownloaded = true;
+                });
+                _this.$scope.$apply();
+            });
+        };
+
         translatorController.prototype.readFile = function () {
             this.translatorService.readFile();
         };
-        translatorController.$inject = ['$scope', 'translatorService', 'appService'];
+        translatorController.$inject = ['$scope', '$q', '$ionicLoading', 'translatorService', 'appService'];
         return translatorController;
     })();
     main.translatorController = translatorController;

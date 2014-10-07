@@ -8,6 +8,8 @@
         "use strict";
 
         (function (Application) {
+            Application.fileSystem;
+
             function initialize() {
                 document.addEventListener('deviceready', onDeviceReady, false);
             }

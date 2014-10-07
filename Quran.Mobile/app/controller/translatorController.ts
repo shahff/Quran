@@ -7,20 +7,16 @@ module main {
 
         public translators: main.model.Translator[];
         public selectedTranslator: string;
-        public isDownloaded: boolean = false;
         
-        public static $inject = ['$scope', 'translatorService','appService'];
-        constructor(private $scope, private translatorService: translatorService, private appService: appService) {
-            var that = this;
-
+        public static $inject = ['$scope', '$q', '$ionicLoading', 'translatorService','appService'];
+        constructor(private $scope, private $q: ng.IQService,private $ionicLoading, private translatorService: translatorService, private appService: appService) {
+            
             $scope.vm = this;
-            $scope.main.showBusy();
+            this.$ionicLoading.show({template: 'Loading...'});
 
             this.getTranslators();
-            //$scope.vm.isDownloaded = this.isDownloaded = true;
             
             this.selectedTranslator = appService.appSetting.selectedTranslator.name;
-
 
         }
 
@@ -28,10 +24,9 @@ module main {
         getTranslators(): void {
             this.translatorService.getTranslatorMetaData().then((s) => {
                 this.translators = s;
-                this.$scope.main.hideBusy();
+                this.getFileNames();
 
-                
-                //this.translators[0].isDownloaded = true;
+                this.$ionicLoading.hide();
             });
         }
 
@@ -45,9 +40,22 @@ module main {
             this.translatorService.downloadFile('sds');
         }
 
+        getFileNames(): void {
+            this.appService.getDownloadFileNames().then(fns=> {
+
+                _.each(fns, (f) => {
+                    var transFound = _.findWhere(this.translators, { id: f });    
+                    transFound.isDownloaded = true;
+                });
+                this.$scope.$apply();
+            });
+        }
+
+
         readFile(): void {
             this.translatorService.readFile();
         }
+
     }
 }
 

@@ -7,7 +7,13 @@ angular.module("main", ['ionic']).controller("mainController", main.mainControll
     $stateProvider.state('main', {
         url: "/main",
         abstract: true,
-        templateUrl: "app/view/main.html"
+        templateUrl: "app/view/main.html",
+        controller: "mainController",
+        resolve: {
+            appSetting: function (appService) {
+                return appService.init();
+            }
+        }
     }).state('main.sura', {
         url: "/sura/:id",
         views: {

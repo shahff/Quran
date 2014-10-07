@@ -26,6 +26,12 @@ angular.module("main", ['ionic'])
                 url: "/main",
                 abstract: true,
                 templateUrl: "app/view/main.html",
+                controller: "mainController",
+                resolve: {
+                appSetting: function (appService) {
+                    return appService.init();
+                }
+            }
             })
 
             .state('main.sura', {
@@ -35,7 +41,13 @@ angular.module("main", ['ionic'])
                         templateUrl: "app/view/sura.html",
                         controller: 'suraController'
                     }
-                }
+                },
+                //resolve: {
+                //    appSetting: function (appService)
+                //    {
+                //        return appService.init();
+                //    }
+                //}
             })
 
             .state('main.reciter', {

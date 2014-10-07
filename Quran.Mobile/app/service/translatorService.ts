@@ -7,8 +7,11 @@ module main {
     
     export class translatorService {
 
-        static $inject = ['$http', '$q'];
-        constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+        public downloadFileName: string[];
+        public defaultTranslatorId: string = "en.yusufali";
+
+        static $inject = ['$http', '$q','appService'];
+        constructor(private $http: ng.IHttpService, private $q: ng.IQService, private appService: appService) {
         }
 
         getTranslatorMetaData(): ng.IPromise<main.model.Translator[]> {
@@ -36,49 +39,104 @@ module main {
 
         }
 
-        getDownloadFileNames(): void {
-
-            //todo
-        }
 
         readFile(): void {
 
-            var filePath = main.model.CONSTANT.localTranslationPath + "en.yusufali.txt";
+            var filePath = main.model.CONSTANT.localTranslationFullPath + "en.yusufali.txt";
             this.$http.get(filePath, { cache: true }).then(s => {
                 alert(s.data);
             }).catch(e=> alert(e))
 
         }
 
-        getTranslationDownloaded(): void {
-
-        }
-
         downloadFile(translator: string): void {
 
             var fileTransfer = new FileTransfer();
-            var translator = "en.yusufali";
-            var uri = encodeURI(main.model.CONSTANT.translationURL + translator);
-            var filePath = main.model.CONSTANT.localTranslationPath + translator + ".txt";
+            var translatorID = "en.yusufali";
+            var uri = encodeURI(model.CONSTANT.translationURL + translatorID);
+            var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
            
             fileTransfer.download(
                 uri,
                 filePath,
-                function (entry) {
+                (entry)=> {
                     alert('ok' + entry.fullPath + ' - ' + entry.toURL); 
 
-                    console.log("download complete: " + entry.fullPath);
+                    this.appService.storeDownloadFileName(translatorID);
+                    //console.log("download complete: " + entry.fullPath);
                     
                 },
                 function (error) {
                     alert(error.source + '  - ' + error.target + ' - ' + error.code);
-                    console.log("download error source " + error.source);
-                    console.log("download error target " + error.target);
-                    console.log("upload error code" + error.code);
+                },false,true);
+        }
+
+        removeDownloadFileName(translatorID:string): ng.IPromise<string[]> {
+
+
+            var deferral = this.$q.defer<string[]>();
+
+            this.appService.getDownloadFileNames().then(ls=> {
+
+                var arrTR: string[] = _.without(ls,translatorID);
+                localforage.setItem(model.CONSTANT.downloadTranslationDBKey, arrTR);
+
+                deferral.resolve(arrTR);
+
+            });
+
+            return deferral.promise;
+        }
+
+
+        //File System helpers
+        getDownloadFileNamesX(): void {
+
+            this.listDir('Quran.Mobile/downloads/translation').then(n=> {
+                //if(e.
+                var dd = n;
+            });
+
+        }
+
+        getFilesystem() : ng.IPromise<FileSystem> {
+            
+            ////win.requestFileSystem(win.PERSISTENT, 20000, this.onFileSuccess, this.onFileError);
+
+            var deferral = this.$q.defer<FileSystem>();
+            var win: Window = window;
+            win.requestFileSystem(win.PERSISTENT, 1024 * 1024, (filesystem: FileSystem) =>{
+                    deferral.resolve(filesystem);
                 },
-                false,true
-             
+                (err) =>{
+                    deferral.reject(err);
+                });
+
+            return deferral.promise;
+        }
+
+        listDir(filePath): ng.IPromise<Entry[]> {
+            var deferral = this.$q.defer<Entry[]>();
+
+            this.getFilesystem().then(
+                filesystem => {
+                    filesystem.root.getDirectory(filePath, { create: false }, parent => {
+                        var reader:DirectoryReader = parent.createReader();
+                        reader.readEntries(
+                            entries=> {
+                                deferral.resolve(entries);
+                            },
+                            function () {
+                                deferral.reject('DIR_READ_ERROR : ' + filePath);
+                            }
+                            );
+                    }, function () {
+                            deferral.reject('DIR_NOT_FOUND : ' + filePath);
+                        });
+                }
                 );
+
+            return deferral.promise;
         }
     }
 }

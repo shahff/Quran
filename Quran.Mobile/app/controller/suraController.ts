@@ -33,7 +33,8 @@
                 this.getSura();
 
             this.selectedBookmarks = new Array<string>();
-            
+
+            this.displayContentType = this.appService.appSetting.selectedDisplayContentType;
 
         }
         
@@ -83,6 +84,7 @@
 
         bookmark(): void {
             this.bookmarkService.storeBookmark(this.selectedSura);
+            this.getBookmarkIDs();
         }
 
         getBookmarkIDs(): void {
@@ -94,6 +96,9 @@
 
         displayContent(displayContent: string): void {
             this.displayContentType = displayContent;
+            this.appService.appSetting.selectedDisplayContentType = displayContent;
+            this.appService.storeAppSetting();
+
             //this.$scope.$apply();
         }
 
