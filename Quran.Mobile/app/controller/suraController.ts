@@ -39,7 +39,7 @@
         }
         
         getSura(): void {
-            this.suraService.getSura(this.suraID, 'en.yusufali').then(s=> {
+            this.suraService.getSura(this.suraID).then(s=> {
                 s.selectedAyaID = this.ayaID;
                 this.selectedSura = s;
 

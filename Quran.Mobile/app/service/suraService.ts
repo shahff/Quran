@@ -2,8 +2,8 @@
     "use strict"
 
     export class suraService {
-        static $inject = ['$http', '$q'];
-        constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+        static $inject = ['$http', '$q','appService'];
+        constructor(private $http: ng.IHttpService, private $q: ng.IQService, private appService: appService) {
         }
 
         getSuraMetaData(): ng.IPromise<main.model.Sura[]> {
@@ -49,15 +49,17 @@
             return deferral.promise;
        }
 
-        getSura(suraID: number, selectedTranslatorID: string): ng.IPromise<main.model.Sura> {
+        getSura(suraID: number): ng.IPromise<main.model.Sura> {
 
-            selectedTranslatorID = 'en.yusufali';
+
+            var selectedTranslatorID = this.appService.appSetting.selectedTranslator.id;//'en.yusufali';
+            var translationTextPath = selectedTranslatorID === 'en.yusufali'?'content/': model.CONSTANT.localTranslationFullPath;
 
             var deferral = this.$q.defer<main.model.Sura>();
 
             var suraDetails = this.getSuraByID(suraID),
                 quranText = this.$http.get('content/quran-simple-enhanced.txt', { cache: true }),
-                translationText = this.$http.get('content/'+ selectedTranslatorID +'.txt', { cache: true });
+                translationText = this.$http.get(translationTextPath+ selectedTranslatorID +'.txt', { cache: true });
 
             this.$q.all([suraDetails, quranText, translationText]).then(results => {
                 
@@ -68,12 +70,14 @@
                 var translationArray = this.csvToArray(translationString.trim());
 
                 var translationSura = _.where(translationArray, { suraID: suraID.toString() });
+                var quranSura : any = _.where(quranArray, { suraID: suraID.toString() });
+
 
                 //var entries = [];
                 var ayas: main.model.Aya[] = [];
 
-                 for (var i = 0; i < quranArray.length; ++i) {
-                     var row = quranArray[i];
+                for (var i = 0; i < quranSura.length; ++i) {
+                    var row = quranSura[i];
 
                      if (row.suraID === suraID.toString()) {
                         if (row.suraID != 1 && row.ayaID < 2)
@@ -81,9 +85,13 @@
                         
                         var a = new main.model.Aya();
                         a.arabic = row.content;
-                        a.ayaID = row.ayaID;
-                        var trans = _.where(translationSura, { ayaID: row.ayaID });
-                        a.translation = trans[0].content;
+                         a.ayaID = row.ayaID;
+                         if (translationSura.length > 0) {
+                             var trans = _.where(translationSura, { ayaID: row.ayaID });
+                             a.translation = trans[0].content;
+                         }
+                         else
+                             a.translation = "error: unable to translation";
                         ayas.push(a);
                         //entries.push(row);
                     }
@@ -93,7 +101,10 @@
 
                 deferral.resolve(sura);
 
-            }, error=> { deferral.reject(error) });
+            }, error=> { 
+            
+                deferral.reject(error)
+            });
 
             return deferral.promise;
         }
@@ -103,7 +114,7 @@
             var csvArray = [];
 
             "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
-            csvString = csvString.substring(0, csvString.indexOf("#"));
+            csvString = csvString.substring(0, csvString.indexOf("\n\n#"));
 
             // Break it into rows to start
             var csvRows = csvString.split(/\n/);

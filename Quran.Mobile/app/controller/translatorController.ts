@@ -36,8 +36,13 @@ module main {
             this.appService.storeAppSetting();
         }
 
-        downloadFile(): void {
-            this.translatorService.downloadFile('sds');
+        downloadFile(selectedItem: main.model.Translator): void {
+
+            this.$ionicLoading.show({ template: '<i class="icon ion-loading-c"></i> Downloading...' });
+
+            this.translatorService.downloadFile(selectedItem.id).then(s=> {
+                this.$ionicLoading.hide();
+            });
         }
 
         getFileNames(): void {

@@ -49,26 +49,35 @@ module main {
 
         }
 
-        downloadFile(translator: string): void {
+        downloadFile(translatorID: string): ng.IPromise<string> {
 
             var fileTransfer = new FileTransfer();
-            var translatorID = "en.yusufali";
+            //var translatorID = "en.yusufali";
             var uri = encodeURI(model.CONSTANT.translationURL + translatorID);
             var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
-           
+
+            var deferral = this.$q.defer<string>();
+
+
             fileTransfer.download(
                 uri,
                 filePath,
                 (entry)=> {
                     alert('ok' + entry.fullPath + ' - ' + entry.toURL); 
-
+                    
                     this.appService.storeDownloadFileName(translatorID);
                     //console.log("download complete: " + entry.fullPath);
-                    
+                    deferral.resolve(entry.fullPath);
                 },
-                function (error) {
+                (error) =>{
                     alert(error.source + '  - ' + error.target + ' - ' + error.code);
+                    deferral.resolve('err:'+error.source + '  - ' + error.target + ' - ' + error.code);
                 },false,true);
+
+
+
+            return deferral.promise;
+
         }
 
         removeDownloadFileName(translatorID:string): ng.IPromise<string[]> {

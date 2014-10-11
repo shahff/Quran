@@ -38,6 +38,7 @@
         fname: string;
         url: string;
         isDownloaded: boolean;
+        isRTL: boolean;
     }
 
     //stored in DB

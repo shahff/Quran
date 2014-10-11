@@ -45,21 +45,29 @@ var main;
             });
         };
 
-        translatorService.prototype.downloadFile = function (translator) {
+        translatorService.prototype.downloadFile = function (translatorID) {
             var _this = this;
             var fileTransfer = new FileTransfer();
-            var translatorID = "en.yusufali";
+
+            //var translatorID = "en.yusufali";
             var uri = encodeURI(main.model.CONSTANT.translationURL + translatorID);
             var filePath = main.model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
+
+            var deferral = this.$q.defer();
 
             fileTransfer.download(uri, filePath, function (entry) {
                 alert('ok' + entry.fullPath + ' - ' + entry.toURL);
 
                 _this.appService.storeDownloadFileName(translatorID);
+
                 //console.log("download complete: " + entry.fullPath);
+                deferral.resolve(entry.fullPath);
             }, function (error) {
                 alert(error.source + '  - ' + error.target + ' - ' + error.code);
+                deferral.resolve('err:' + error.source + '  - ' + error.target + ' - ' + error.code);
             }, false, true);
+
+            return deferral.promise;
         };
 
         translatorService.prototype.removeDownloadFileName = function (translatorID) {

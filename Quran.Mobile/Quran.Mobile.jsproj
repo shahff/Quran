@@ -127,7 +127,13 @@
     <Content Include="content\reciterData.json" />
     <Content Include="content\suraData.json" />
     <Content Include="content\translatorData.json" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\ionic.min.css" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\ionicons.eot" />
     <Content Include="fonts\ionicons.svg" />
     <Content Include="fonts\ionicons.ttf" />

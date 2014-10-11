@@ -36,14 +36,17 @@
             <ion-footer-bar class="bar-gray">
                 <div class="button-bar">
                     <!--<button class="button button-icon icon ion-ios7-fastforward" ng-click="vm.play()"></button>-->
-                    <button class="button button-icon icon ion-android-earth lang-buttons" ng-click="showSubFooter = !showSubFooter"></button>
+                    <button class="button button-icon fa fa-step-backward"></button>
+                    <button class="button button-icon fa fa-language lang-buttons" ng-click="showSubFooter = !showSubFooter"></button>
                     <button class="button button-icon icon ion-contrast" ng-click="isNightly = !isNightly"></button>
+                    <button class="button button-icon fa fa-text-height"></button>
                     <div>
                         <div style="font-size:11px;margin-top:-8px">{{vm.selectedSura.selectedAyaID}} of {{vm.selectedSura.numberOfAyas}}</div>
                             <button class="button button-icon" ng-class="{'ion-ios7-star-outline': !vm.isBookmarked, 'ion-ios7-star': vm.isBookmarked}" ng-click="vm.bookmark()"></button>
                     </div>
-                    
-                    <!-- <button ng-click="vm.slideTo('95')" class="button">select aya</button> -->
+                    <button class="button button-icon fa fa-step-forward"></button>
+
+                    <!-- <button ng-click="vm.slideTo('95')" class="button ">select aya</button> -->
                     <!-- <button ng-click="vm.play()" class="button">Play - {{vm.selectedSura.selectedAyaID}}</button> -->
                     <!-- <button ng-click="vm.displayContent('arabic')" class="button">Arabic</button>
                     <button ng-click="vm.displayContent('translation')" class="button">Translation</button> -->

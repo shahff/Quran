@@ -33,8 +33,13 @@ var main;
             this.appService.storeAppSetting();
         };
 
-        translatorController.prototype.downloadFile = function () {
-            this.translatorService.downloadFile('sds');
+        translatorController.prototype.downloadFile = function (selectedItem) {
+            var _this = this;
+            this.$ionicLoading.show({ template: '<i class="icon ion-loading-c"></i> Downloading...' });
+
+            this.translatorService.downloadFile(selectedItem.id).then(function (s) {
+                _this.$ionicLoading.hide();
+            });
         };
 
         translatorController.prototype.getFileNames = function () {
