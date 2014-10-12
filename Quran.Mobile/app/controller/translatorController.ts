@@ -42,6 +42,7 @@ module main {
 
             this.translatorService.downloadFile(selectedItem.id).then(s=> {
                 this.$ionicLoading.hide();
+                selectedItem.isDownloaded = true;
             });
         }
 

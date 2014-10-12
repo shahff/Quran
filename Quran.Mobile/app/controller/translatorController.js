@@ -39,6 +39,7 @@ var main;
 
             this.translatorService.downloadFile(selectedItem.id).then(function (s) {
                 _this.$ionicLoading.hide();
+                selectedItem.isDownloaded = true;
             });
         };
 

@@ -65,17 +65,42 @@
             var ayaID = this.$location.$$hash;
             if (ayaID++ > +this.selectedSura.numberOfAyas - 1) {
                 //move next sura
-                var path = '/main/sura/' + (+this.selectedSura.id + 1);
-                this.$location.hash(1);
-                this.$location.path(path);
-                return;
+                this.next();
             }
             this.slideTo(ayaID);
+        };
+
+        suraController.prototype.next = function () {
+            this.nav(true);
+        };
+
+        suraController.prototype.previous = function () {
+            this.nav(false);
         };
 
         suraController.prototype.bookmark = function () {
             this.bookmarkService.storeBookmark(this.selectedSura);
             this.getBookmarkIDs();
+        };
+
+        suraController.prototype.displayContent = function () {
+            var displayContent = this.appService.appSetting.selectedDisplayContentType === 'arabic' ? 'translation' : 'arabic';
+
+            this.displayContentType = displayContent;
+            this.appService.appSetting.selectedDisplayContentType = displayContent;
+            this.appService.storeAppSetting();
+            //this.$scope.$apply();
+        };
+
+        suraController.prototype.nav = function (moveNext) {
+            var currSuraID = +this.selectedSura.id;
+            var suraID = moveNext ? currSuraID + 1 : currSuraID - 1;
+
+            if (suraID >= 1 && suraID <= 114) {
+                var path = '/main/sura/' + suraID;
+                this.$location.hash(1);
+                this.$location.path(path);
+            }
         };
 
         suraController.prototype.getBookmarkIDs = function () {
@@ -86,13 +111,6 @@
                     return b.selectedSura.id === selSuraID;
                 }), "id");
             });
-        };
-
-        suraController.prototype.displayContent = function (displayContent) {
-            this.displayContentType = displayContent;
-            this.appService.appSetting.selectedDisplayContentType = displayContent;
-            this.appService.storeAppSetting();
-            //this.$scope.$apply();
         };
 
         //index.html

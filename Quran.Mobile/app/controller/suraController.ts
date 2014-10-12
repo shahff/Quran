@@ -64,7 +64,6 @@
             this.isBookmarked  = _.indexOf(this.selectedBookmarks, id ) > -1;
         }
 
-
         play(): void {
 
             
@@ -72,34 +71,52 @@
             if (ayaID++ > +this.selectedSura.numberOfAyas -1)
             {
                 //move next sura
-                var path = '/main/sura/' + (+this.selectedSura.id + 1);
-                this.$location.hash(1);
-                this.$location.path(path);
-                return;
+                this.next();
 
             }
             this.slideTo(ayaID);
         }
 
+        next(): void {
+            this.nav(true);
+        }
+
+        previous(): void {
+            this.nav(false);
+        }
 
         bookmark(): void {
             this.bookmarkService.storeBookmark(this.selectedSura);
             this.getBookmarkIDs();
         }
 
-        getBookmarkIDs(): void {
-            var selSuraID = this.selectedSura.id;
-            this.bookmarkService.getBookmarks().then(bms=> {
-                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
-            });
-        }
+        displayContent(): void {
 
-        displayContent(displayContent: string): void {
+            var displayContent = this.appService.appSetting.selectedDisplayContentType === 'arabic' ? 'translation' : 'arabic';
+
             this.displayContentType = displayContent;
             this.appService.appSetting.selectedDisplayContentType = displayContent;
             this.appService.storeAppSetting();
 
             //this.$scope.$apply();
+        }
+
+        private nav(moveNext: boolean): void {
+            var currSuraID = +this.selectedSura.id;
+            var suraID = moveNext ? currSuraID + 1 : currSuraID - 1;
+
+            if (suraID >= 1 && suraID <= 114) {
+                var path = '/main/sura/' + suraID;
+                this.$location.hash(1);
+                this.$location.path(path)
+            }
+        }
+
+        private getBookmarkIDs(): void {
+            var selSuraID = this.selectedSura.id;
+            this.bookmarkService.getBookmarks().then(bms=> {
+                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
+            });
         }
 
         //index.html

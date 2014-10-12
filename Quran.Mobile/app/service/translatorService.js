@@ -56,14 +56,13 @@ var main;
             var deferral = this.$q.defer();
 
             fileTransfer.download(uri, filePath, function (entry) {
-                alert('ok' + entry.fullPath + ' - ' + entry.toURL);
-
                 _this.appService.storeDownloadFileName(translatorID);
 
                 //console.log("download complete: " + entry.fullPath);
+                //alert('ok' + entry.fullPath + ' - ' + entry.toURL);
                 deferral.resolve(entry.fullPath);
             }, function (error) {
-                alert(error.source + '  - ' + error.target + ' - ' + error.code);
+                //alert(error.source + '  - ' + error.target + ' - ' + error.code);
                 deferral.resolve('err:' + error.source + '  - ' + error.target + ' - ' + error.code);
             }, false, true);
 
