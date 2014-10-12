@@ -8,8 +8,8 @@ module main {
         public translators: main.model.Translator[];
         public selectedTranslator: string;
         
-        public static $inject = ['$scope', '$q', '$ionicLoading', 'translatorService','appService'];
-        constructor(private $scope, private $q: ng.IQService,private $ionicLoading, private translatorService: translatorService, private appService: appService) {
+        public static $inject = ['$scope', '$q', '$ionicLoading','$location','$ionicScrollDelegate', 'translatorService','appService'];
+        constructor(private $scope, private $q: ng.IQService, private $ionicLoading, private $location, private $ionicScrollDelegate, private translatorService: translatorService, private appService: appService) {
             
             $scope.vm = this;
             this.$ionicLoading.show({template: 'Loading...'});
@@ -34,6 +34,10 @@ module main {
             this.selectedTranslator = selectedItem.name;
             this.appService.appSetting.selectedTranslator = selectedItem;
             this.appService.storeAppSetting();
+
+            this.$location.hash(selectedItem.id);
+            this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
+            
         }
 
         downloadFile(selectedItem: main.model.Translator): void {
@@ -43,6 +47,17 @@ module main {
             this.translatorService.downloadFile(selectedItem.id).then(s=> {
                 this.$ionicLoading.hide();
                 selectedItem.isDownloaded = true;
+                this.setTranslator(selectedItem);
+            });
+        }
+
+        removeFile(selectedItem: main.model.Translator): void {
+
+            this.$ionicLoading.show({ template: '<i class="icon ion-loading-c"></i> Removing File...' });
+
+            this.translatorService.removeFile(selectedItem.id).then(s=> {
+                this.$ionicLoading.hide();
+                selectedItem.isDownloaded = false;
             });
         }
 
@@ -55,11 +70,6 @@ module main {
                 });
                 this.$scope.$apply();
             });
-        }
-
-
-        readFile(): void {
-            this.translatorService.readFile();
         }
 
     }

@@ -4,10 +4,12 @@ var main;
     "use strict";
 
     var translatorController = (function () {
-        function translatorController($scope, $q, $ionicLoading, translatorService, appService) {
+        function translatorController($scope, $q, $ionicLoading, $location, $ionicScrollDelegate, translatorService, appService) {
             this.$scope = $scope;
             this.$q = $q;
             this.$ionicLoading = $ionicLoading;
+            this.$location = $location;
+            this.$ionicScrollDelegate = $ionicScrollDelegate;
             this.translatorService = translatorService;
             this.appService = appService;
             $scope.vm = this;
@@ -31,6 +33,9 @@ var main;
             this.selectedTranslator = selectedItem.name;
             this.appService.appSetting.selectedTranslator = selectedItem;
             this.appService.storeAppSetting();
+
+            this.$location.hash(selectedItem.id);
+            this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
         };
 
         translatorController.prototype.downloadFile = function (selectedItem) {
@@ -40,6 +45,17 @@ var main;
             this.translatorService.downloadFile(selectedItem.id).then(function (s) {
                 _this.$ionicLoading.hide();
                 selectedItem.isDownloaded = true;
+                _this.setTranslator(selectedItem);
+            });
+        };
+
+        translatorController.prototype.removeFile = function (selectedItem) {
+            var _this = this;
+            this.$ionicLoading.show({ template: '<i class="icon ion-loading-c"></i> Removing File...' });
+
+            this.translatorService.removeFile(selectedItem.id).then(function (s) {
+                _this.$ionicLoading.hide();
+                selectedItem.isDownloaded = false;
             });
         };
 
@@ -53,11 +69,7 @@ var main;
                 _this.$scope.$apply();
             });
         };
-
-        translatorController.prototype.readFile = function () {
-            this.translatorService.readFile();
-        };
-        translatorController.$inject = ['$scope', '$q', '$ionicLoading', 'translatorService', 'appService'];
+        translatorController.$inject = ['$scope', '$q', '$ionicLoading', '$location', '$ionicScrollDelegate', 'translatorService', 'appService'];
         return translatorController;
     })();
     main.translatorController = translatorController;

@@ -36,17 +36,7 @@ var main;
             return deferral.promise;
         };
 
-        translatorService.prototype.readFile = function () {
-            var filePath = main.model.CONSTANT.localTranslationFullPath + "en.yusufali.txt";
-            this.$http.get(filePath, { cache: true }).then(function (s) {
-                alert(s.data);
-            }).catch(function (e) {
-                return alert(e);
-            });
-        };
-
         translatorService.prototype.downloadFile = function (translatorID) {
-            var _this = this;
             var fileTransfer = new FileTransfer();
 
             //var translatorID = "en.yusufali";
@@ -55,27 +45,33 @@ var main;
 
             var deferral = this.$q.defer();
 
-            fileTransfer.download(uri, filePath, function (entry) {
-                _this.appService.storeDownloadFileName(translatorID);
+            deferral.resolve("testing"); //when testing
 
-                //console.log("download complete: " + entry.fullPath);
-                //alert('ok' + entry.fullPath + ' - ' + entry.toURL);
-                deferral.resolve(entry.fullPath);
-            }, function (error) {
-                //alert(error.source + '  - ' + error.target + ' - ' + error.code);
-                deferral.resolve('err:' + error.source + '  - ' + error.target + ' - ' + error.code);
-            }, false, true);
-
+            //fileTransfer.download(uri,filePath,
+            //    (entry)=> {
+            //        this.appService.storeDownloadFileName(translatorID);
+            //        //console.log("download complete: " + entry.fullPath);
+            //        //alert('ok' + entry.fullPath + ' - ' + entry.toURL);
+            //        deferral.resolve(entry.fullPath);
+            //    },
+            //    (error) =>{
+            //        //alert(error.source + '  - ' + error.target + ' - ' + error.code);
+            //        deferral.resolve('err:'+error.source + '  - ' + error.target + ' - ' + error.code);
+            //    },false,true);
             return deferral.promise;
         };
 
-        translatorService.prototype.removeDownloadFileName = function (translatorID) {
+        translatorService.prototype.removeFile = function (translatorID) {
             var deferral = this.$q.defer();
 
             this.appService.getDownloadFileNames().then(function (ls) {
+                //remove ID from DB
                 var arrTR = _.without(ls, translatorID);
                 localforage.setItem(main.model.CONSTANT.downloadTranslationDBKey, arrTR);
 
+                //remove file
+                //var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
+                //this.removeDownloadFile(filePath);
                 deferral.resolve(arrTR);
             });
 
@@ -83,6 +79,16 @@ var main;
         };
 
         //File System helpers
+        translatorService.prototype.removeDownloadFile = function (filePath) {
+            this.listDir(filePath).then(function (f) {
+                if (f.length > 0)
+                    f[0].remove(function () {
+                    }, function (error) {
+                        alert('unable to remove file');
+                    });
+            });
+        };
+
         translatorService.prototype.getDownloadFileNamesX = function () {
             this.listDir('Quran.Mobile/downloads/translation').then(function (n) {
                 //if(e.

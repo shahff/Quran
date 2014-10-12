@@ -39,16 +39,6 @@ module main {
 
         }
 
-
-        readFile(): void {
-
-            var filePath = main.model.CONSTANT.localTranslationFullPath + "en.yusufali.txt";
-            this.$http.get(filePath, { cache: true }).then(s => {
-                alert(s.data);
-            }).catch(e=> alert(e))
-
-        }
-
         downloadFile(translatorID: string): ng.IPromise<string> {
 
             var fileTransfer = new FileTransfer();
@@ -58,32 +48,38 @@ module main {
 
             var deferral = this.$q.defer<string>();
 
-            fileTransfer.download(uri,filePath,
-                (entry)=> {
+            deferral.resolve("testing"); //when testing
+
+            //fileTransfer.download(uri,filePath,
+            //    (entry)=> {
                     
-                    this.appService.storeDownloadFileName(translatorID);
-                    //console.log("download complete: " + entry.fullPath);
-                    //alert('ok' + entry.fullPath + ' - ' + entry.toURL); 
-                    deferral.resolve(entry.fullPath);
-                },
-                (error) =>{
-                    //alert(error.source + '  - ' + error.target + ' - ' + error.code);
-                    deferral.resolve('err:'+error.source + '  - ' + error.target + ' - ' + error.code);
-                },false,true);
+            //        this.appService.storeDownloadFileName(translatorID);
+            //        //console.log("download complete: " + entry.fullPath);
+            //        //alert('ok' + entry.fullPath + ' - ' + entry.toURL); 
+            //        deferral.resolve(entry.fullPath);
+            //    },
+            //    (error) =>{
+            //        //alert(error.source + '  - ' + error.target + ' - ' + error.code);
+            //        deferral.resolve('err:'+error.source + '  - ' + error.target + ' - ' + error.code);
+            //    },false,true);
 
             return deferral.promise;
 
         }
 
-        removeDownloadFileName(translatorID:string): ng.IPromise<string[]> {
+        removeFile(translatorID:string): ng.IPromise<string[]> {
 
 
             var deferral = this.$q.defer<string[]>();
 
             this.appService.getDownloadFileNames().then(ls=> {
-
+                //remove ID from DB
                 var arrTR: string[] = _.without(ls,translatorID);
                 localforage.setItem(model.CONSTANT.downloadTranslationDBKey, arrTR);
+                
+                //remove file  
+                //var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
+                //this.removeDownloadFile(filePath);
 
                 deferral.resolve(arrTR);
 
@@ -94,7 +90,14 @@ module main {
 
 
         //File System helpers
-        getDownloadFileNamesX(): void {
+        private removeDownloadFile(filePath: string): void {
+            this.listDir(filePath).then(f=> {
+                if (f.length > 0)
+                    f[0].remove(() => { }, (error) => { alert('unable to remove file'); });
+            });
+        }
+
+        private getDownloadFileNamesX(): void {
 
             this.listDir('Quran.Mobile/downloads/translation').then(n=> {
                 //if(e.
@@ -103,7 +106,7 @@ module main {
 
         }
 
-        getFilesystem() : ng.IPromise<FileSystem> {
+        private getFilesystem() : ng.IPromise<FileSystem> {
             
             ////win.requestFileSystem(win.PERSISTENT, 20000, this.onFileSuccess, this.onFileError);
 
@@ -119,7 +122,7 @@ module main {
             return deferral.promise;
         }
 
-        listDir(filePath): ng.IPromise<Entry[]> {
+        private listDir(filePath): ng.IPromise<Entry[]> {
             var deferral = this.$q.defer<Entry[]>();
 
             this.getFilesystem().then(
@@ -142,5 +145,14 @@ module main {
 
             return deferral.promise;
         }
+
+        //readFile(): void {
+
+        //    var filePath = main.model.CONSTANT.localTranslationFullPath + "en.yusufali.txt";
+        //    this.$http.get(filePath, { cache: true }).then(s => {
+        //        alert(s.data);
+        //    }).catch(e=> alert(e))
+
+        //}
     }
 }

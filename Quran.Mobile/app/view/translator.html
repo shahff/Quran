@@ -9,18 +9,19 @@
                 </label>
             </div>
 
-            <ion-content class="has-header translation-content">
+            <ion-content class="has-header translation-content" delegate-handle="mainScroll">
 
             <!-- <button ng-click="vm.downloadFile()">Download file</button> <hr /><button ng-click="vm.readFile()">Read</button> -->
               
                 <!--ng-disabled="!r.isDownloaded"-->
-              <div ng-repeat="r in vm.translators |filter: filterList">
-               <ion-radio   ng-value="r.name" ng-model="vm.selectedTranslator" ng-disabled="!r.isDownloaded" ng-change="vm.setTranslator(r)" >                
+              <div ng-repeat="r in vm.translators |filter: filterList | orderBy: 'isDownloaded'">
+               <ion-radio id="{{r.id}}"  ng-value="r.name" ng-model="vm.selectedTranslator" ng-disabled="!r.isDownloaded" ng-change="vm.setTranslator(r)" >                
                 <h2>{{ r.fname }}</h2>
                 <h4><img ng-src="{{ r.imgUrl }}">{{ r.lang }}</h4>
                 <!-- <button class="pull-right button botton-positive" ng-disabled="false" ng-click="vm.downloadFile()">Download</button> -->
                </ion-radio>
-                  <button class="pull-right" ng-click="vm.downloadFile(r)" ng-hide="r.isDownloaded">Download</button>
+                  <button class="button botton-positive ion-android-download" ng-click="vm.downloadFile(r)" ng-hide="r.isDownloaded"> Download</button>
+                  <button class="button botton-positive ion-android-trash" ng-click="vm.removeFile(r)" ng-hide="!r.isDownloaded"> Remove</button>
               </div>
             </ion-content>
         </ion-view>

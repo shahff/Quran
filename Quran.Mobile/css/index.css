@@ -80,6 +80,9 @@
   z-index:999;
 }
 
+.bar-green {
+    background-color: rgba(90, 170, 36, 0.3)
+}
 /*
   Left Menu
 */
