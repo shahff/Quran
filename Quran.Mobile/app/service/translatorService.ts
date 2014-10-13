@@ -41,7 +41,8 @@ module main {
 
         downloadFile(translatorID: string): ng.IPromise<string> {
 
-            var fileTransfer = new FileTransfer();
+            //var fileTransfer = new FileTransfer(); //when testing
+
             //var translatorID = "en.yusufali";
             var uri = encodeURI(model.CONSTANT.translationURL + translatorID);
             var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
