@@ -37,15 +37,14 @@ var main;
         };
 
         translatorService.prototype.downloadFile = function (translatorID) {
-            var fileTransfer = new FileTransfer();
-
+            // var fileTransfer = new FileTransfer(); //when testing **
             //var translatorID = "en.yusufali";
             var uri = encodeURI(main.model.CONSTANT.translationURL + translatorID);
             var filePath = main.model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
 
             var deferral = this.$q.defer();
 
-            deferral.resolve("testing"); //when testing
+            deferral.resolve("testing"); //when testing **
 
             //fileTransfer.download(uri,filePath,
             //    (entry)=> {
@@ -69,7 +68,7 @@ var main;
                 var arrTR = _.without(ls, translatorID);
                 localforage.setItem(main.model.CONSTANT.downloadTranslationDBKey, arrTR);
 
-                //remove file
+                //remove file  //when testing **
                 //var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
                 //this.removeDownloadFile(filePath);
                 deferral.resolve(arrTR);

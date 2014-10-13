@@ -41,7 +41,7 @@ module main {
 
         downloadFile(translatorID: string): ng.IPromise<string> {
 
-            //var fileTransfer = new FileTransfer(); //when testing
+            // var fileTransfer = new FileTransfer(); //when testing **
 
             //var translatorID = "en.yusufali";
             var uri = encodeURI(model.CONSTANT.translationURL + translatorID);
@@ -49,7 +49,7 @@ module main {
 
             var deferral = this.$q.defer<string>();
 
-            deferral.resolve("testing"); //when testing
+            deferral.resolve("testing"); //when testing **
 
             //fileTransfer.download(uri,filePath,
             //    (entry)=> {
@@ -78,7 +78,7 @@ module main {
                 var arrTR: string[] = _.without(ls,translatorID);
                 localforage.setItem(model.CONSTANT.downloadTranslationDBKey, arrTR);
                 
-                //remove file  
+                //remove file  //when testing **
                 //var filePath = model.CONSTANT.localTranslationFullPath + translatorID + ".txt";
                 //this.removeDownloadFile(filePath);
 
