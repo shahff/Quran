@@ -6,26 +6,27 @@ module main {
     export class mainController {
 
         
-        public static $inject = ['$scope', '$timeout', '$ionicLoading', 'appService'];
-        constructor(private $scope, private $timeout: ng.ITimeoutService, private $ionicLoading, private appService: appService) {
+        public static $inject = ['$scope', '$ionicPlatform', '$location', '$state', 'appService'];
+        constructor(private $scope, private $ionicPlatform, private $location: ng.ILocationService, private $state, private appService: appService) {
             var that = this;
 
             $scope.main = this;
 
+            
+
+            this.$ionicPlatform.registerBackButtonAction(
+                 (e)=> {
+
+                     var nav:any = navigator;
+                     if (this.$location.url().indexOf("sura/") < 0)
+                         this.$state.go('main.sura');
+                     else
+                        nav.app.exitApp();
+
+                    }, 100
+                );
+
         }
-
-        //showBusy(): void {
-
-        //    // Show the loading overlay and text
-        //    this.$ionicLoading.show({
-        //            template: 'Loading...'
-        //        });
-        //}
-
-
-        //hideBusy(): void {
-        //    this.$ionicLoading.hide();
-        //}
 
     }
 }

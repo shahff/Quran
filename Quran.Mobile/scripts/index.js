@@ -8,8 +8,7 @@
         "use strict";
 
         (function (Application) {
-            Application.fileSystem;
-
+            //export var fileSystem: FileSystem;
             function initialize() {
                 document.addEventListener('deviceready', onDeviceReady, false);
             }

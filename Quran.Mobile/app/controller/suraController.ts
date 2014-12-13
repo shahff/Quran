@@ -1,4 +1,6 @@
-﻿module main {
+﻿/// <reference path="../../scripts/typings/cordova/plugins/media.d.ts" />
+
+module main {
     "use strict"
     
     export class suraController {
@@ -10,10 +12,12 @@
         public showTranslation: boolean;
         public displayContentType: string = 'arabic';
         public selectedBookmarks: string[] = [];
-        public isBookmarked : boolean = false;
+        public isBookmarked: boolean = false;
+        public intervalObj: ng.IPromise<any>;
+        public autoPlayOn: boolean;
 
-        public static $inject = ['$scope', '$stateParams', '$location', '$ionicScrollDelegate', 'appService', 'suraService', 'bookmarkService'];
-        constructor(private $scope, private $stateParams, private $location, private $ionicScrollDelegate, private appService: appService, private suraService: suraService, private bookmarkService: bookmarkService) {
+        public static $inject = ['$scope', '$stateParams', '$location', '$interval','$ionicPlatform', '$ionicScrollDelegate', 'appService', 'suraService', 'bookmarkService','mediaService'];
+        constructor(private $scope, private $stateParams, private $location, private $interval: ng.IIntervalService, private $ionicPlatform, private $ionicScrollDelegate, private appService: appService, private suraService: suraService, private bookmarkService: bookmarkService, private mediaService: mediaService) {
     
             $scope.vm = this;
             
@@ -26,6 +30,11 @@
                 this.suraID = +suraParam[0];
                 this.ayaID = (suraParam[1] === undefined) ? 1 : +suraParam[1];
             }
+            else if (this.appService.appSetting.selectedSura != null)
+            {
+                this.suraID = this.appService.appSetting.selectedSura.id;
+                this.ayaID = this.appService.appSetting.selectedSura.selectedAyaID;
+            }
            
             this.hasBismillah = (this.suraID === 1 || this.suraID === 9)?false:true;
             
@@ -36,45 +45,119 @@
 
             this.displayContentType = this.appService.appSetting.selectedDisplayContentType;
 
+            
+            
+            this.$scope.$on("$destroy", () => {
+
+                if (this.appService.autoPlayOn)
+                    this.stop();
+
+                //save to DB
+                this.appService.storeAppSetting();
+
+                //
+                //deregister;
+            });
         }
         
         getSura(): void {
             this.suraService.getSura(this.suraID).then(s=> {
                 s.selectedAyaID = this.ayaID;
                 this.selectedSura = s;
+                this.appService.appSetting.selectedSura = this.selectedSura;
 
                 //set bookmarks
                 this.getBookmarkIDs();
 
-                //slide to position & check bookmark
-                this.slideTo(this.ayaID);
-                
+                //auto play
+                if (this.appService.autoPlayOn)
+                    this.play();
             });
         }
 
         slideTo(ayaID: number): void {
-            this.selectedSura.selectedAyaID = ayaID;
-            if (ayaID > 1) {
+
+            this.selectedSura.selectedAyaID = this.ayaID = ayaID;
+            if (ayaID > +this.selectedSura.numberOfAyas ){  
+                //move next sura
+                this.next();
+
+            }
+            if (ayaID >= 1) {
                 this.$location.hash(ayaID);
                 this.$ionicScrollDelegate.$getByHandle('mainScroll').anchorScroll(true);
             }
 
             //set bookmark
-            var id = this.selectedSura.id + ":" + this.selectedSura.selectedAyaID; 
-            this.isBookmarked  = _.indexOf(this.selectedBookmarks, id ) > -1;
+            var id = this.selectedSura.id + ":" + this.selectedSura.selectedAyaID;
+            this.isBookmarked = _.indexOf(this.selectedBookmarks, id) > -1;
+            //this.$scope.$apply();
+
+        }
+        
+        play(hasUserRequestStop?:boolean): void {
+
+            if (this.appService.autoPlayOn && hasUserRequestStop)
+            {
+                this.autoPlayOn = this.appService.autoPlayOn = false;
+                this.stop();
+                return;
+            }
+
+            this.autoPlayOn = this.appService.autoPlayOn = true;
+            this.intervalObj = this.$interval(() => {
+
+                if(this.ayaID >0)
+                    this.ayaID++
+
+                this.slideTo(this.ayaID);
+                //this.playAudio();
+            }, 3000);
+
+            //this.$scope.$apply();
+            
+            //this.mediaService.play(ayaID).then((res) => {
+            //    if(res==='done')
+            //        this.play();
+            //});
+
         }
 
-        play(): void {
+        displayContent(): void {
 
-            
-            var ayaID = this.$location.$$hash;
-            if (ayaID++ > +this.selectedSura.numberOfAyas -1)
-            {
-                //move next sura
-                this.next();
+            var displayContent = this.appService.appSetting.selectedDisplayContentType === 'arabic' ? 'translation' : 'arabic';
 
+            this.displayContentType = displayContent;
+            this.appService.appSetting.selectedDisplayContentType = displayContent;
+            //this.appService.storeAppSetting();
+
+        }
+
+        private nav(moveNext: boolean): void {
+
+            var currSuraID = +this.selectedSura.id;
+            var suraID = moveNext ? currSuraID + 1 : currSuraID - 1;
+            suraID = suraID > 114 ? 1 : suraID;
+
+            if (suraID >= 1 && suraID <= 114) {
+                var path = '/main/sura/' + suraID;
+                this.$location.hash(1);
+                this.$location.path(path)
             }
-            this.slideTo(ayaID);
+        }
+
+        private getBookmarkIDs(): void {
+            var selSuraID = this.selectedSura.id;
+            this.bookmarkService.getBookmarks().then(bms=> {
+                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
+                
+            });
+        }
+
+        stop(): void {
+
+            if (this.intervalObj)
+                this.$interval.cancel(this.intervalObj);
         }
 
         next(): void {
@@ -90,34 +173,6 @@
             this.getBookmarkIDs();
         }
 
-        displayContent(): void {
-
-            var displayContent = this.appService.appSetting.selectedDisplayContentType === 'arabic' ? 'translation' : 'arabic';
-
-            this.displayContentType = displayContent;
-            this.appService.appSetting.selectedDisplayContentType = displayContent;
-            this.appService.storeAppSetting();
-
-            //this.$scope.$apply();
-        }
-
-        private nav(moveNext: boolean): void {
-            var currSuraID = +this.selectedSura.id;
-            var suraID = moveNext ? currSuraID + 1 : currSuraID - 1;
-
-            if (suraID >= 1 && suraID <= 114) {
-                var path = '/main/sura/' + suraID;
-                this.$location.hash(1);
-                this.$location.path(path)
-            }
-        }
-
-        private getBookmarkIDs(): void {
-            var selSuraID = this.selectedSura.id;
-            this.bookmarkService.getBookmarks().then(bms=> {
-                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
-            });
-        }
 
         //index.html
         getSuraIndex(): void {

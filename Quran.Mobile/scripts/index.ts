@@ -7,7 +7,7 @@ module Quran.Mobile {
 
     export module Application {
 
-        export var fileSystem: FileSystem;
+        //export var fileSystem: FileSystem;
 
         export function initialize() {
             document.addEventListener('deviceready', onDeviceReady, false);

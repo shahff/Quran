@@ -49,6 +49,7 @@
         selectedSura: Sura;
         selectedSuraText: string; //sample 03:33
         selectedDisplayContentType: string;
+        //selectedPlayOption: boolean;
     }
 
     export class Bookmark {
@@ -65,6 +66,7 @@
         static downloadTranslationDBKey: string = '_translationFileName';
         static localPersistentPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/';
         static translationURL: string = 'http://tanzil.net/trans/';
+        static audioURL: string = 'http://tanzil.net/res/audio/';
         static localTranslationFullPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
         static localAudioFullPath: string = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
         static localTranslationPath: string = 'Quran.Mobile/downloads/translation';

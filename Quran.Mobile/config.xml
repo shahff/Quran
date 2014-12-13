@@ -13,6 +13,7 @@
   <vs:features>
     <vs:feature>org.apache.cordova.file@1.2.0</vs:feature>
     <vs:feature>org.apache.cordova.file-transfer@0.4.4</vs:feature>
+    <vs:feature>org.apache.cordova.media@0.2.11</vs:feature>
   </vs:features>
   <vs:platformSpecificValues />
 </widget>

@@ -54,6 +54,7 @@
             CONSTANT.downloadTranslationDBKey = '_translationFileName';
             CONSTANT.localPersistentPath = 'cdvfile://localhost/persistent/Quran.Mobile/';
             CONSTANT.translationURL = 'http://tanzil.net/trans/';
+            CONSTANT.audioURL = 'http://tanzil.net/res/audio/';
             CONSTANT.localTranslationFullPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/translation/';
             CONSTANT.localAudioFullPath = 'cdvfile://localhost/persistent/Quran.Mobile/downloads/audio/';
             CONSTANT.localTranslationPath = 'Quran.Mobile/downloads/translation';

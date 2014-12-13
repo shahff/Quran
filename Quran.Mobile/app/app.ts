@@ -16,6 +16,7 @@ angular.module("main", ['ionic'])
     .service("reciterService", main.reciterService)
     .service("translatorService", main.translatorService)
     .service("bookmarkService", main.bookmarkService)
+    .service("mediaService", main.mediaService)
 
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -28,7 +29,7 @@ angular.module("main", ['ionic'])
                 templateUrl: "app/view/main.html",
                 controller: "mainController",
                 resolve: {
-                appSetting: function (appService) {
+                    appSetting: function (appService) {
                     return appService.init();
                 }
             }
@@ -41,13 +42,7 @@ angular.module("main", ['ionic'])
                         templateUrl: "app/view/sura.html",
                         controller: 'suraController'
                     }
-                },
-                //resolve: {
-                //    appSetting: function (appService)
-                //    {
-                //        return appService.init();
-                //    }
-                //}
+                }
             })
 
             .state('main.reciter', {

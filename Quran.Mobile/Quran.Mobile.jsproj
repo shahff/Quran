@@ -159,6 +159,7 @@
     <TypeScriptCompile Include="app\model\model.ts" />
     <TypeScriptCompile Include="app\service\appService.ts" />
     <TypeScriptCompile Include="app\service\bookmarkService.ts" />
+    <TypeScriptCompile Include="app\service\mediaService.ts" />
     <TypeScriptCompile Include="app\service\reciterService.ts" />
     <TypeScriptCompile Include="app\service\suraService.ts" />
     <TypeScriptCompile Include="app\service\translatorService.ts" />

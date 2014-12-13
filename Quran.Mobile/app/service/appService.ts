@@ -7,6 +7,7 @@ module main {
     export class appService {
 
         public appSetting: main.model.AppSetting;
+        public autoPlayOn: boolean
 
         static $inject = ['$q'];
         constructor(private $q: ng.IQService) {
