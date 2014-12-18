@@ -49,8 +49,8 @@ var main;
 
                 //save to DB
                 _this.appService.storeAppSetting();
-                //
-                //deregister;
+
+                _this.mediaService.stop();
             });
         }
         suraController.prototype.getSura = function () {
@@ -91,22 +91,34 @@ var main;
             if (this.appService.autoPlayOn && hasUserRequestStop) {
                 this.autoPlayOn = this.appService.autoPlayOn = false;
                 this.stop();
+
+                //this.mediaService.stop();
                 return;
             }
 
             this.autoPlayOn = this.appService.autoPlayOn = true;
+
+            //** TESTING ONLY ***
             this.intervalObj = this.$interval(function () {
                 if (_this.ayaID > 0)
                     _this.ayaID++;
-
                 _this.slideTo(_this.ayaID);
-                //this.playAudio();
             }, 3000);
-            //this.$scope.$apply();
-            //this.mediaService.play(ayaID).then((res) => {
-            //    if(res==='done')
-            //        this.play();
-            //});
+            //this.playAudio();
+        };
+
+        suraController.prototype.playAudio = function () {
+            var _this = this;
+            this.mediaService.play(this.ayaID).then(function (res) {
+                if (res === 'done') {
+                    if (_this.ayaID > 0)
+                        _this.ayaID++;
+
+                    _this.slideTo(_this.ayaID);
+
+                    _this.playAudio();
+                }
+            });
         };
 
         suraController.prototype.displayContent = function () {

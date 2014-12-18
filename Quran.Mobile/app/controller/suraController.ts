@@ -55,8 +55,7 @@ module main {
                 //save to DB
                 this.appService.storeAppSetting();
 
-                //
-                //deregister;
+                this.mediaService.stop();
             });
         }
         
@@ -101,26 +100,34 @@ module main {
             {
                 this.autoPlayOn = this.appService.autoPlayOn = false;
                 this.stop();
+                //this.mediaService.stop();
                 return;
             }
 
             this.autoPlayOn = this.appService.autoPlayOn = true;
+            //** TESTING ONLY ***
             this.intervalObj = this.$interval(() => {
-
-                if(this.ayaID >0)
-                    this.ayaID++
-
-                this.slideTo(this.ayaID);
-                //this.playAudio();
+            if(this.ayaID >0)
+             this.ayaID++
+            this.slideTo(this.ayaID);
             }, 3000);
 
-            //this.$scope.$apply();
-            
-            //this.mediaService.play(ayaID).then((res) => {
-            //    if(res==='done')
-            //        this.play();
-            //});
+            //this.playAudio();
+        }
 
+        playAudio(): void {
+
+            this.mediaService.play(this.ayaID).then((res) => {
+                if (res === 'done') {
+
+                    if (this.ayaID > 0)
+                        this.ayaID++
+
+                    this.slideTo(this.ayaID);
+
+                    this.playAudio();
+                 }
+            });
         }
 
         displayContent(): void {

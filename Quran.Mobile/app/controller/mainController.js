@@ -4,12 +4,13 @@ var main;
     "use strict";
 
     var mainController = (function () {
-        function mainController($scope, $ionicPlatform, $location, $state, appService) {
+        function mainController($scope, $ionicPlatform, $location, $state, mediaService, appService) {
             var _this = this;
             this.$scope = $scope;
             this.$ionicPlatform = $ionicPlatform;
             this.$location = $location;
             this.$state = $state;
+            this.mediaService = mediaService;
             this.appService = appService;
             var that = this;
 
@@ -18,13 +19,14 @@ var main;
             this.$ionicPlatform.registerBackButtonAction(function (e) {
                 var nav = navigator;
                 if (_this.$location.url().indexOf("sura/") < 0)
-                    //this.$location.path("#/main/sura/");
                     _this.$state.go('main.sura');
-                else
+                else {
+                    _this.mediaService.stop();
                     nav.app.exitApp();
+                }
             }, 100);
         }
-        mainController.$inject = ['$scope', '$ionicPlatform', '$location', '$state', 'appService'];
+        mainController.$inject = ['$scope', '$ionicPlatform', '$location', '$state', 'mediaService', 'appService'];
         return mainController;
     })();
     main.mainController = mainController;
