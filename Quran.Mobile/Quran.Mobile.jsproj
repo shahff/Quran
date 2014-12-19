@@ -113,6 +113,8 @@
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\service\mediaService.js" />
+    <Content Include="app\service\mediaService.js.map" />
     <Content Include="app\view\bookmark.html" />
     <Content Include="app\view\main.html" />
     <Content Include="app\view\reciter.html" />
