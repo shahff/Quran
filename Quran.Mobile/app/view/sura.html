@@ -1,4 +1,7 @@
-﻿        <ion-view title="{{vm.selectedSura.id}} {{vm.selectedSura.transName}} {{vm.selectedSura.name}} ">
+﻿        <ion-view>
+            <ion-nav-title>
+                {{vm.selectedSura.id}} {{vm.selectedSura.transName}} {{vm.selectedSura.name}}
+            </ion-nav-title>
             <ion-nav-buttons side="left">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
             </ion-nav-buttons>
@@ -15,10 +18,10 @@
 
                         <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas" ng-class="{'bar-green' : s.ayaID == vm.selectedSura.selectedAyaID}">
                             <span ng-if="vm.displayContentType==='arabic'" >
-                            {{s.arabic}} <span class="positive ayaid">﴿{{s.ayaID}}﴾</span> 
+                            {{::s.arabic}} <span class="positive ayaid">﴿{{::s.ayaID}}﴾</span>
                           </span>
                           <span ng-if="vm.displayContentType==='translation'"> 
-                            <span class="positive ayaid">﴾{{s.ayaID}}﴿</span>  {{s.translation}} 
+                            <span class="positive ayaid">﴾{{::s.ayaID}}﴿</span>  {{::s.translation}} 
                           </span>
                          
                             

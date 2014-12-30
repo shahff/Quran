@@ -113,8 +113,6 @@
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\service\mediaService.js" />
-    <Content Include="app\service\mediaService.js.map" />
     <Content Include="app\view\bookmark.html" />
     <Content Include="app\view\main.html" />
     <Content Include="app\view\reciter.html" />
@@ -215,7 +213,6 @@
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-resource.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-route.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-sanitize.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\angularjs\angular-scenario.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="scripts\typings\cordova\cordova.d.ts" />
     <TypeScriptCompile Include="scripts\typings\cordova\plugins\BatteryStatus.d.ts" />

@@ -15,7 +15,7 @@ var main;
             this.getReciters();
 
             //set selected Reciter
-            this.$scope.vm.selectedReciter = this.appService.appSetting.selectedReciter.name;
+            this.selectedReciter = this.appService.appSetting.selectedReciter.name;
         }
         reciterController.prototype.getReciters = function () {
             var _this = this;
