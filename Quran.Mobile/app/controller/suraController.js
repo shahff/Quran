@@ -49,8 +49,7 @@ var main;
 
                 //save to DB
                 _this.appService.storeAppSetting();
-
-                _this.mediaService.stop();
+                //this.mediaService.stop();
             });
         }
         suraController.prototype.getSura = function () {
@@ -83,7 +82,6 @@ var main;
             //set bookmark
             var id = this.selectedSura.id + ":" + this.selectedSura.selectedAyaID;
             this.isBookmarked = _.indexOf(this.selectedBookmarks, id) > -1;
-            //this.$scope.$apply();
         };
 
         suraController.prototype.play = function (hasUserRequestStop) {
@@ -141,16 +139,6 @@ var main;
             }
         };
 
-        suraController.prototype.getBookmarkIDs = function () {
-            var _this = this;
-            var selSuraID = this.selectedSura.id;
-            this.bookmarkService.getBookmarks().then(function (bms) {
-                _this.selectedBookmarks = _.pluck(_.filter(bms, function (b) {
-                    return b.selectedSura.id === selSuraID;
-                }), "id");
-            });
-        };
-
         suraController.prototype.stop = function () {
             if (this.intervalObj)
                 this.$interval.cancel(this.intervalObj);
@@ -165,8 +153,19 @@ var main;
         };
 
         suraController.prototype.bookmark = function () {
+            this.isBookmarked = true;
             this.bookmarkService.storeBookmark(this.selectedSura);
             this.getBookmarkIDs();
+        };
+
+        suraController.prototype.getBookmarkIDs = function () {
+            var _this = this;
+            var selSuraID = this.selectedSura.id;
+            this.bookmarkService.getBookmarks().then(function (bms) {
+                _this.selectedBookmarks = _.pluck(_.filter(bms, function (b) {
+                    return b.selectedSura.id === selSuraID;
+                }), "id");
+            });
         };
 
         //index.html

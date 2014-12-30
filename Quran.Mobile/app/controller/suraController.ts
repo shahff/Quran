@@ -55,7 +55,7 @@ module main {
                 //save to DB
                 this.appService.storeAppSetting();
 
-                this.mediaService.stop();
+                //this.mediaService.stop();
             });
         }
         
@@ -90,7 +90,6 @@ module main {
             //set bookmark
             var id = this.selectedSura.id + ":" + this.selectedSura.selectedAyaID;
             this.isBookmarked = _.indexOf(this.selectedBookmarks, id) > -1;
-            //this.$scope.$apply();
 
         }
         
@@ -153,14 +152,6 @@ module main {
             }
         }
 
-        private getBookmarkIDs(): void {
-            var selSuraID = this.selectedSura.id;
-            this.bookmarkService.getBookmarks().then(bms=> {
-                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
-                
-            });
-        }
-
         stop(): void {
 
             if (this.intervalObj)
@@ -176,11 +167,20 @@ module main {
         }
 
         bookmark(): void {
+            this.isBookmarked = true;
             this.bookmarkService.storeBookmark(this.selectedSura);
             this.getBookmarkIDs();
         }
 
+        private getBookmarkIDs(): void {
+            var selSuraID = this.selectedSura.id;
+            this.bookmarkService.getBookmarks().then(bms=> {
+                this.selectedBookmarks = _.pluck(_.filter(bms, function (b) { return b.selectedSura.id === selSuraID; }), "id");
 
+            });
+        }
+
+        
         //index.html
         getSuraIndex(): void {
             this.suraService.getSuraMetaData().then((s) => {

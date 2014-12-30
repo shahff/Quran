@@ -7,7 +7,6 @@
 
         public static $inject = ['$scope', 'suraService'];
         constructor(private $scope, private suraService: suraService) {
-            var that = this;
 
             $scope.vm = this;
 

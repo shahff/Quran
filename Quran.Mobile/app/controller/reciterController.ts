@@ -9,16 +9,16 @@ module main {
         public selectedReciter: string;
 
         public static $inject = ['$scope', 'reciterService', 'appService'];
-        constructor(private $scope, private reciterService: reciterService, private appService: appService) {
+        constructor(private $scope,  private reciterService: reciterService, private appService: appService) {
+
             var that = this;
 
             $scope.vm = this;
 
             this.getReciters();
 
-
             //set selected Reciter
-            this.$scope.vm.selectedReciter = this.appService.appSetting.selectedReciter.name;
+            this.selectedReciter = this.appService.appSetting.selectedReciter.name;
             
         }
 

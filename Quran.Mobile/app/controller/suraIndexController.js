@@ -6,8 +6,6 @@
         function suraIndexController($scope, suraService) {
             this.$scope = $scope;
             this.suraService = suraService;
-            var that = this;
-
             $scope.vm = this;
 
             this.getSuraIndex();
