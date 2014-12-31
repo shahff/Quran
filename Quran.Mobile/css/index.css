@@ -148,6 +148,26 @@ a.item-content span:before {
   color: #FFF;
 }
 
+.ayaids {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.ayaids span {
+  display: inline-block;
+  padding: .4em;
+  border-radius: 3px 3px 0 0;
+  color: #fff;
+  background-color: rgba(0,0,0,.3);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
 /*
   Index page
 */
