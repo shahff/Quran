@@ -30,24 +30,19 @@
                 </div>
             
             </ion-content>
-            <div class="bar bar-subfooter" style="height:180px;background-color:lightgrey" ng-show="showSubFooter">
+            <div class="bar bar-subfooter settings" ng-show="showSubFooter">
                 <div class="list">
-
-                  <div class="item item-divider">
-                    Setting
-                  </div>
-
-                 <ion-toggle ng-click="isNightly = !isNightly">
-                    Dark Theme
-                  </ion-toggle>
-                 
-                <div class="button-bar">
-                    <a class="button">Font size</a>
-                    <a class="button">-</a>
-                    <a class="button">+</a>
+                    <ion-toggle ng-click="isNightly = !isNightly">
+                        <span ng-show="isNightly">Nightly theme</span>
+                        <span ng-hide="isNightly">Daily theme</span>
+                    </ion-toggle>
+                     
+                    <div class="button-bar">
+                        <a class="button">Font size</a>
+                        <a class="button">-</a>
+                        <a class="button">+</a>
+                    </div>
                 </div>
-            </div>
-
             </div>
             <ion-footer-bar class="bar-gray">
                 <div class="button-bar">
@@ -64,7 +59,7 @@
                     <button ng-click="vm.displayContent('translation')" class="button">Translation</button> -->
                 </div>
                 <div class="ayaids">
-                    <span>{{vm.selectedSura.selectedAyaID}} / {{vm.selectedSura.numberOfAyas}}</span>
+                    <span ng-class="{true: 'light'}[isNightly]">{{vm.selectedSura.selectedAyaID}} / {{vm.selectedSura.numberOfAyas}}</span>
                 </div>
             </ion-footer-bar>            
         </ion-view>
