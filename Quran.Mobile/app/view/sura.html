@@ -13,20 +13,23 @@
                            
                                 
                 <div class="uthman-bold sura-content" ng-class="{rtl: vm.displayContentType==='arabic'}">
-                <h4 class="uthman-bold padding text-center bismillah" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
-                     <div>
-
+                    <h4 class="uthman-bold padding text-center bismillah" ng-show="vm.hasBismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h4>
+                    <!-- <div>
                         <span id="{{s.ayaID}}"  ng-click="vm.slideTo('{{s.ayaID}}')" ng-repeat="s in vm.selectedSura.ayas" ng-class="{'bar-green' : s.ayaID == vm.selectedSura.selectedAyaID}">
-                            <span ng-if="vm.displayContentType==='arabic'" >
+                          <span ng-if="vm.displayContentType==='arabic'" >
                             {{::s.arabic}} <span class="positive ayaid">﴿{{::s.ayaID}}﴾</span>
                           </span>
                           <span ng-if="vm.displayContentType==='translation'"> 
                             <span class="positive ayaid">﴾{{::s.ayaID}}﴿</span>  {{::s.translation}} 
-                          </span>
-                         
-                            
+                          </span>                            
                         </span>
-                    </div>
+                    </div> -->
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
             
             </ion-content>
@@ -39,8 +42,8 @@
                      
                     <div class="button-bar">
                         <a class="button">Font size</a>
-                        <a class="button">-</a>
-                        <a class="button">+</a>
+                        <a class="button" ng-click="vm.decreaseFontsize()">-</a>
+                        <a class="button" ng-click="vm.increaseFontsize()">+</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +51,7 @@
                 <div class="button-bar">
                     <!-- <button class="button button-icon icon ion-ios7-fastforward" ng-click="vm.play()"></button> -->
                     <button class="button button-icon ion-arrow-left-b" ng-click="vm.previous()"></button>
-                    <button class="button button-icon fa fa-language lang-buttons" ng-click="vm.displayContent()"></button>              
+                    <button class="button button-icon fa fa-language lang-buttons" ng-click="vm.displayContent()"></button>
                     <button class="button button-icon" ng-class="{'ion-ios7-star-outline': !vm.isBookmarked, 'ion-ios7-star': vm.isBookmarked}" ng-click="vm.bookmark()"></button>
                     <!-- <button class="button button-icon icon ion-contrast" ng-click="isNightly = !isNightly"></button> -->
                     <button class="button button-icon ion-gear-b" ng-click="showSubFooter = !showSubFooter"></button>

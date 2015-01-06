@@ -89,30 +89,28 @@ a.item-content span:before {
 }
 
 .menu-left {
-  background-color: #2c2c2c;
+  background-color: #eee;
 }
 
 .menu-left .item {
-  background-color: #2c2c2c;
   border: 0;
-  border-top: 1px solid #424242;
-  border-bottom: 1px solid #424242;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
+}
+
+.menu-left .item:first-child {
+  border-top: 0;
+}
+
+.menu-left .item:last-child {
+  border-bottom: 0;
 }
 
 .menu-left .item a {
-  background-color: #2c2c2c;  
-  color: #fff;
+  background-color: #eee;  
+  color: #2a2a2a;
+  font-weight: bold;
 }
-
-.menu-left .item a:hover {
-  background-color: #eee;
-  color: #2c2c2c;  
-}
-
-.menu-left .item a span:before {
-  /*color: #fff;*/
-}
-
 
 
 /*
