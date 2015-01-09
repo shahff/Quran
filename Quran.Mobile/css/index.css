@@ -79,6 +79,11 @@
 .bar-green {
     background-color: rgba(90, 170, 36, 0.3)
 }
+
+.bar .title.title-left {
+  text-align: center;
+}
+
 /*
   Left Menu
 */
@@ -285,6 +290,42 @@ a.item-content span:before {
 
 .translation-content .country {
   margin: .5em 0;
+}
+  
+.translation-item {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.translation-item .radio-icon {
+  margin-top: 6px;
+}
+
+.translation-item .item {
+  padding: 0;
+  border-right: 0;
+}
+
+.translation-item .button {
+  margin-top: 16px;
+}
+
+.translation-item .button.download {
+  color: #6d9850;
+}
+
+.translation-item .button.trash {
+  color: #ef4e3a;
+}
+
+.translation-item h4 {
+  margin-top: 10px;
+  color: #444;
+}
+
+.translation-item h4 img {
+  margin-right: 10px;
 }
 
 .mybutton {
