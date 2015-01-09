@@ -112,6 +112,19 @@ a.item-content span:before {
   font-weight: bold;
 }
 
+.menu-left .chosen-item {
+  display: block;
+  font-size: .7em;
+  color: #6d9850;
+  margin-top: -5px;
+}
+
+.menu-left .chosen-item:before {
+  position: relative;
+  top: 6px;
+  padding-right: 5px;
+}
+
 
 /*
   Sura Page
@@ -178,6 +191,10 @@ a.item-content span:before {
 
 .settings .item-toggle {
   margin: 0;
+}
+
+.settings .item-toggle.activated {  
+  background-color: #fff;
 }
 
 .settings .toggle input:checked+.track {
@@ -266,7 +283,7 @@ a.item-content span:before {
   margin-top: 3.2em;
 }
 
-.translation-content .country{
+.translation-content .country {
   margin: .5em 0;
 }
 
