@@ -20,6 +20,10 @@ var main;
             this.selectedBookmarks = [];
             this.isBookmarked = false;
             $scope.vm = this;
+            this.suraContent = document.body.getElementsByClassName('sura-content')[0];
+            this.changeFontStep = 2;
+            this.defaultFontSize = 16+'px';
+            this.suraContent.style.fontSize = this.defaultFontSize;
 
             //sample id = 2:85
             this.suraID = 19;
@@ -175,6 +179,19 @@ var main;
                 _this.$scope.vm.suras = s;
             });
         };
+     
+        suraController.prototype.increaseFontsize = function () {         
+            var fontSize = parseInt(this.suraContent.style.fontSize, 10);
+            fontSize += this.changeFontStep;
+            this.suraContent.style.fontSize = fontSize + 'px';
+        };
+        
+        suraController.prototype.decreaseFontsize = function () {
+            var fontSize = parseInt(this.suraContent.style.fontSize, 10);
+            fontSize -= this.changeFontStep;
+            this.suraContent.style.fontSize = fontSize + 'px';
+        };
+
         suraController.$inject = ['$scope', '$stateParams', '$location', '$interval', '$ionicPlatform', '$ionicScrollDelegate', 'appService', 'suraService', 'bookmarkService', 'mediaService'];
         return suraController;
     })();

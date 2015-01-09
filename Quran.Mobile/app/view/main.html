@@ -9,23 +9,21 @@
     <ion-content>
       <ion-list>
         <ion-item nav-clear menu-close href="#/main/sura/">
-          <span class="icon-left ion-home">Home</span>
+          <span class="ion-ios7-home-outline">Home</span>
         </ion-item>
         <ion-item nav-clear menu-close href="#/main/index">        
-          <span class="icon-left ion-ios7-paper">Chapters (Suras)</span>
+          <span class="ion-ios7-paper-outline">Chapters (Suras)</span>
         </ion-item>
         <ion-item nav-clear menu-close href="#/main/reciter">
-          <div class="icon-left ion-ios7-mic">Recitation</div>
-          <span style="font-size:small">{{main.appService.appSetting.selectedReciter.name}}</span>
-                                              
+          <span class="icon-left ion-ios7-mic-outline">Recitation</span>
+          <span class="icon-right ion-ios7-checkmark-empty chosen-item">{{main.appService.appSetting.selectedReciter.name}}</span>
         </ion-item>
-          <ion-item nav-clear menu-close href="#/main/translator">
-            <div class="icon-left ion-ios7-world">Language</div>          
-            <span style="font-size:small">{{main.appService.appSetting.selectedTranslator.name}}</span>
-                
-          </ion-item>
+        <ion-item nav-clear menu-close href="#/main/translator">
+          <span class="icon-left ion-ios7-world-outline">Language</span>          
+          <span class="icon-right ion-ios7-checkmark-empty chosen-item">{{main.appService.appSetting.selectedTranslator.name}}</span>
+        </ion-item>
         <ion-item nav-clear menu-close href="#/main/bookmark">
-          <span class="icon-left ion-star">Bookmark</span>          
+          <span class="icon-left ion-ios7-star-outline">Bookmark</span>          
         </ion-item>
       </ion-list>
     </ion-content>
